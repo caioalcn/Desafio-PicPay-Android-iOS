@@ -8,3 +8,8 @@
 
 import UIKit
 
+enum Enviroment: String {
+    case production = "http://careers.picpay.com/tests/mobdev"
+}
+
+typealias JSON = [String: AnyObject]

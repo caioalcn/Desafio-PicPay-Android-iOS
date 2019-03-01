@@ -7,24 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17387ED62229B8E100A1BA8E /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387ED52229B8E100A1BA8E /* APIConfiguration.swift */; };
+		17387ED82229B8EE00A1BA8E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387ED72229B8EE00A1BA8E /* Client.swift */; };
+		17387EDC2229B92300A1BA8E /* RouterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EDB2229B92300A1BA8E /* RouterEndpoint.swift */; };
+		17387EDE2229B98100A1BA8E /* APIContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EDD2229B98100A1BA8E /* APIContacts.swift */; };
+		17387EE02229B99000A1BA8E /* APIPayments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EDF2229B99000A1BA8E /* APIPayments.swift */; };
+		17387EE32229BAC600A1BA8E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE22229BAC600A1BA8E /* Contact.swift */; };
+		17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE52229C05E00A1BA8E /* ContactsCell.swift */; };
+		17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE72229CD4500A1BA8E /* Transaction.swift */; };
 		DB5229572228CEF8008B0FD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229562228CEF8008B0FD5 /* AppDelegate.swift */; };
 		DB5229592228CEF8008B0FD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229582228CEF8008B0FD5 /* ViewController.swift */; };
 		DB52295C2228CEF8008B0FD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB52295A2228CEF8008B0FD5 /* Main.storyboard */; };
 		DB52295E2228CEF9008B0FD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB52295D2228CEF9008B0FD5 /* Assets.xcassets */; };
 		DB5229612228CEF9008B0FD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB52295F2228CEF9008B0FD5 /* LaunchScreen.storyboard */; };
 		DB52296A2228D295008B0FD5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229692228D295008B0FD5 /* Constants.swift */; };
-		DB52296D2228D2C4008B0FD5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52296C2228D2C4008B0FD5 /* String.swift */; };
 		DB52296F2228D2CE008B0FD5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52296E2228D2CE008B0FD5 /* Date.swift */; };
 		DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229702228D2D9008B0FD5 /* AlertView.swift */; };
-		DB5229742228D301008B0FD5 /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229732228D301008B0FD5 /* DeviceHelper.swift */; };
-		DB5229762228D30C008B0FD5 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229752228D30C008B0FD5 /* LanguageHelper.swift */; };
 		DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229772228D318008B0FD5 /* HUDHelper.swift */; };
 		DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229792228D325008B0FD5 /* ReachabilityManager.swift */; };
-		DB52297C2228D34C008B0FD5 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */; };
 		E01D855C897133C1E1FD165D /* Pods_picpayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F652305196EA7A8950CBB288 /* Pods_picpayment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17387ED52229B8E100A1BA8E /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		17387ED72229B8EE00A1BA8E /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		17387EDB2229B92300A1BA8E /* RouterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEndpoint.swift; sourceTree = "<group>"; };
+		17387EDD2229B98100A1BA8E /* APIContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContacts.swift; sourceTree = "<group>"; };
+		17387EDF2229B99000A1BA8E /* APIPayments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPayments.swift; sourceTree = "<group>"; };
+		17387EE22229BAC600A1BA8E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		17387EE52229C05E00A1BA8E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
+		17387EE72229CD4500A1BA8E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5B69456971133CDD7CEA7F87 /* Pods-picpayment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.release.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.release.xcconfig"; sourceTree = "<group>"; };
 		DB5229532228CEF7008B0FD5 /* picpayment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picpayment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5229562228CEF8008B0FD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,14 +46,10 @@
 		DB5229602228CEF9008B0FD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB5229622228CEF9008B0FD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB5229692228D295008B0FD5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DB52296C2228D2C4008B0FD5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DB52296E2228D2CE008B0FD5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		DB5229702228D2D9008B0FD5 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		DB5229732228D301008B0FD5 /* DeviceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
-		DB5229752228D30C008B0FD5 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		DB5229772228D318008B0FD5 /* HUDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDHelper.swift; sourceTree = "<group>"; };
 		DB5229792228D325008B0FD5 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
-		DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		F652305196EA7A8950CBB288 /* Pods_picpayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_picpayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF41C64EC1C0C168778256BC /* Pods-picpayment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +66,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17387ED32229B8C400A1BA8E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				17387ED42229B8CC00A1BA8E /* Manager */,
+				17387ED92229B8F700A1BA8E /* Router */,
+				17387EDA2229B90100A1BA8E /* Calls */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		17387ED42229B8CC00A1BA8E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				17387ED52229B8E100A1BA8E /* APIConfiguration.swift */,
+				17387ED72229B8EE00A1BA8E /* Client.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		17387ED92229B8F700A1BA8E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				17387EDB2229B92300A1BA8E /* RouterEndpoint.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		17387EDA2229B90100A1BA8E /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+				17387EDD2229B98100A1BA8E /* APIContacts.swift */,
+				17387EDF2229B99000A1BA8E /* APIPayments.swift */,
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
+		17387EE12229B9FC00A1BA8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17387EE22229BAC600A1BA8E /* Contact.swift */,
+				17387EE72229CD4500A1BA8E /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		17387EE42229C02E00A1BA8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17387EE52229C05E00A1BA8E /* ContactsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DB52294A2228CEF7008B0FD5 = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +140,9 @@
 		DB5229552228CEF7008B0FD5 /* PicPayment */ = {
 			isa = PBXGroup;
 			children = (
-				DB5229812228D489008B0FD5 /* Networking */,
-				DB5229802228D47F008B0FD5 /* Models */,
-				DB52297F2228D470008B0FD5 /* Views */,
+				17387ED32229B8C400A1BA8E /* Networking */,
+				17387EE12229B9FC00A1BA8E /* Model */,
+				17387EE42229C02E00A1BA8E /* Views */,
 				DB52297E2228D466008B0FD5 /* Controllers */,
 				DB52297D2228D35E008B0FD5 /* Storyboards */,
 				DB5229722228D2EA008B0FD5 /* Helpers */,
@@ -95,9 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				DB5229562228CEF8008B0FD5 /* AppDelegate.swift */,
+				DB5229692228D295008B0FD5 /* Constants.swift */,
 				DB52295D2228CEF9008B0FD5 /* Assets.xcassets */,
 				DB5229622228CEF9008B0FD5 /* Info.plist */,
-				DB5229692228D295008B0FD5 /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,7 +166,6 @@
 		DB52296B2228D2AC008B0FD5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DB52296C2228D2C4008B0FD5 /* String.swift */,
 				DB52296E2228D2CE008B0FD5 /* Date.swift */,
 				DB5229702228D2D9008B0FD5 /* AlertView.swift */,
 			);
@@ -115,11 +175,8 @@
 		DB5229722228D2EA008B0FD5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DB5229732228D301008B0FD5 /* DeviceHelper.swift */,
-				DB5229752228D30C008B0FD5 /* LanguageHelper.swift */,
 				DB5229772228D318008B0FD5 /* HUDHelper.swift */,
 				DB5229792228D325008B0FD5 /* ReachabilityManager.swift */,
-				DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -139,51 +196,6 @@
 				DB5229582228CEF8008B0FD5 /* ViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		DB52297F2228D470008B0FD5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DB5229802228D47F008B0FD5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		DB5229812228D489008B0FD5 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				DB5229862228D5D3008B0FD5 /* Manager */,
-				DB5229822228D586008B0FD5 /* Router */,
-				DB5229832228D59B008B0FD5 /* Calls */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		DB5229822228D586008B0FD5 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		DB5229832228D59B008B0FD5 /* Calls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calls;
-			sourceTree = "<group>";
-		};
-		DB5229862228D5D3008B0FD5 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		E915CF8025A33272477B64DA /* Frameworks */ = {
@@ -337,12 +349,16 @@
 			files = (
 				DB5229592228CEF8008B0FD5 /* ViewController.swift in Sources */,
 				DB52296F2228D2CE008B0FD5 /* Date.swift in Sources */,
+				17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */,
+				17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */,
+				17387EE32229BAC600A1BA8E /* Contact.swift in Sources */,
 				DB5229572228CEF8008B0FD5 /* AppDelegate.swift in Sources */,
-				DB5229762228D30C008B0FD5 /* LanguageHelper.swift in Sources */,
+				17387EDE2229B98100A1BA8E /* APIContacts.swift in Sources */,
 				DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */,
-				DB52296D2228D2C4008B0FD5 /* String.swift in Sources */,
-				DB5229742228D301008B0FD5 /* DeviceHelper.swift in Sources */,
-				DB52297C2228D34C008B0FD5 /* UserDefaultsHelper.swift in Sources */,
+				17387EDC2229B92300A1BA8E /* RouterEndpoint.swift in Sources */,
+				17387EE02229B99000A1BA8E /* APIPayments.swift in Sources */,
+				17387ED82229B8EE00A1BA8E /* Client.swift in Sources */,
+				17387ED62229B8E100A1BA8E /* APIConfiguration.swift in Sources */,
 				DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */,
 				DB52296A2228D295008B0FD5 /* Constants.swift in Sources */,
 				DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */,
@@ -493,8 +509,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42QU6XXW6Z;
-				INFOPLIST_FILE = picpayment/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/PicPayment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,8 +528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42QU6XXW6Z;
-				INFOPLIST_FILE = picpayment/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/PicPayment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

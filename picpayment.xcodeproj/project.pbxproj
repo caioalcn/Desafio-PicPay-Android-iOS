@@ -12,6 +12,15 @@
 		DB52295C2228CEF8008B0FD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB52295A2228CEF8008B0FD5 /* Main.storyboard */; };
 		DB52295E2228CEF9008B0FD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB52295D2228CEF9008B0FD5 /* Assets.xcassets */; };
 		DB5229612228CEF9008B0FD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB52295F2228CEF9008B0FD5 /* LaunchScreen.storyboard */; };
+		DB52296A2228D295008B0FD5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229692228D295008B0FD5 /* Constants.swift */; };
+		DB52296D2228D2C4008B0FD5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52296C2228D2C4008B0FD5 /* String.swift */; };
+		DB52296F2228D2CE008B0FD5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52296E2228D2CE008B0FD5 /* Date.swift */; };
+		DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229702228D2D9008B0FD5 /* AlertView.swift */; };
+		DB5229742228D301008B0FD5 /* DeviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229732228D301008B0FD5 /* DeviceHelper.swift */; };
+		DB5229762228D30C008B0FD5 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229752228D30C008B0FD5 /* LanguageHelper.swift */; };
+		DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229772228D318008B0FD5 /* HUDHelper.swift */; };
+		DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229792228D325008B0FD5 /* ReachabilityManager.swift */; };
+		DB52297C2228D34C008B0FD5 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */; };
 		E01D855C897133C1E1FD165D /* Pods_picpayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F652305196EA7A8950CBB288 /* Pods_picpayment.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +33,15 @@
 		DB52295D2228CEF9008B0FD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB5229602228CEF9008B0FD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB5229622228CEF9008B0FD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB5229692228D295008B0FD5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB52296C2228D2C4008B0FD5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DB52296E2228D2CE008B0FD5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		DB5229702228D2D9008B0FD5 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		DB5229732228D301008B0FD5 /* DeviceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
+		DB5229752228D30C008B0FD5 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
+		DB5229772228D318008B0FD5 /* HUDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDHelper.swift; sourceTree = "<group>"; };
+		DB5229792228D325008B0FD5 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		F652305196EA7A8950CBB288 /* Pods_picpayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_picpayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF41C64EC1C0C168778256BC /* Pods-picpayment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,7 +61,7 @@
 		DB52294A2228CEF7008B0FD5 = {
 			isa = PBXGroup;
 			children = (
-				DB5229552228CEF7008B0FD5 /* picpayment */,
+				DB5229552228CEF7008B0FD5 /* PicPayment */,
 				DB5229542228CEF7008B0FD5 /* Products */,
 				F95AC963E5F2A8D9EE6725A4 /* Pods */,
 				E915CF8025A33272477B64DA /* Frameworks */,
@@ -58,17 +76,114 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB5229552228CEF7008B0FD5 /* picpayment */ = {
+		DB5229552228CEF7008B0FD5 /* PicPayment */ = {
+			isa = PBXGroup;
+			children = (
+				DB5229812228D489008B0FD5 /* Networking */,
+				DB5229802228D47F008B0FD5 /* Models */,
+				DB52297F2228D470008B0FD5 /* Views */,
+				DB52297E2228D466008B0FD5 /* Controllers */,
+				DB52297D2228D35E008B0FD5 /* Storyboards */,
+				DB5229722228D2EA008B0FD5 /* Helpers */,
+				DB52296B2228D2AC008B0FD5 /* Extensions */,
+				DB5229682228D25D008B0FD5 /* Supporting Files */,
+			);
+			path = PicPayment;
+			sourceTree = "<group>";
+		};
+		DB5229682228D25D008B0FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				DB5229562228CEF8008B0FD5 /* AppDelegate.swift */,
-				DB5229582228CEF8008B0FD5 /* ViewController.swift */,
-				DB52295A2228CEF8008B0FD5 /* Main.storyboard */,
 				DB52295D2228CEF9008B0FD5 /* Assets.xcassets */,
-				DB52295F2228CEF9008B0FD5 /* LaunchScreen.storyboard */,
 				DB5229622228CEF9008B0FD5 /* Info.plist */,
+				DB5229692228D295008B0FD5 /* Constants.swift */,
 			);
-			path = picpayment;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB52296B2228D2AC008B0FD5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB52296C2228D2C4008B0FD5 /* String.swift */,
+				DB52296E2228D2CE008B0FD5 /* Date.swift */,
+				DB5229702228D2D9008B0FD5 /* AlertView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB5229722228D2EA008B0FD5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB5229732228D301008B0FD5 /* DeviceHelper.swift */,
+				DB5229752228D30C008B0FD5 /* LanguageHelper.swift */,
+				DB5229772228D318008B0FD5 /* HUDHelper.swift */,
+				DB5229792228D325008B0FD5 /* ReachabilityManager.swift */,
+				DB52297B2228D34C008B0FD5 /* UserDefaultsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB52297D2228D35E008B0FD5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DB52295A2228CEF8008B0FD5 /* Main.storyboard */,
+				DB52295F2228CEF9008B0FD5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DB52297E2228D466008B0FD5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB5229582228CEF8008B0FD5 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB52297F2228D470008B0FD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB5229802228D47F008B0FD5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB5229812228D489008B0FD5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DB5229862228D5D3008B0FD5 /* Manager */,
+				DB5229822228D586008B0FD5 /* Router */,
+				DB5229832228D59B008B0FD5 /* Calls */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DB5229822228D586008B0FD5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB5229832228D59B008B0FD5 /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
+		DB5229862228D5D3008B0FD5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		E915CF8025A33272477B64DA /* Frameworks */ = {
@@ -192,6 +307,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -203,6 +319,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -219,7 +336,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB5229592228CEF8008B0FD5 /* ViewController.swift in Sources */,
+				DB52296F2228D2CE008B0FD5 /* Date.swift in Sources */,
 				DB5229572228CEF8008B0FD5 /* AppDelegate.swift in Sources */,
+				DB5229762228D30C008B0FD5 /* LanguageHelper.swift in Sources */,
+				DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */,
+				DB52296D2228D2C4008B0FD5 /* String.swift in Sources */,
+				DB5229742228D301008B0FD5 /* DeviceHelper.swift in Sources */,
+				DB52297C2228D34C008B0FD5 /* UserDefaultsHelper.swift in Sources */,
+				DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */,
+				DB52296A2228D295008B0FD5 /* Constants.swift in Sources */,
+				DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,9 +24,7 @@ class CardsViewController: UIViewController {
         tableView.backgroundView = noCardDataView
         navigationItem.title = ""
 
-        
     }
-    
 
     /*
     // MARK: - Navigation

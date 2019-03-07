@@ -31,8 +31,8 @@ class ContactsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        navigationController?.navigationBar.tintColor = UIColor.init(red: 91/255, green: 195/255, blue: 120/255, alpha: 1)
-        navigationController?.view.backgroundColor = UIColor.init(red: 29/255, green: 30/255, blue: 32/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor(named: "GreenPic")
+        navigationController?.view.backgroundColor = UIColor(named: "DarkPic")
         navigationItem.searchController = searchController
 
         searchController.searchBar.barStyle = .black

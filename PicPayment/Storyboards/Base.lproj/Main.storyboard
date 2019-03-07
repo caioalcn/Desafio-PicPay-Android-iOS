@@ -199,7 +199,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveCard:" destination="2Xn-Rk-54e" eventType="touchUpInside" id="fkX-9n-N2H"/>
-                                    <segue destination="5Ux-ym-U4M" kind="show" id="ckR-9b-AK7"/>
+                                    <segue destination="5Ux-ym-U4M" kind="show" id="ict-kL-Nfr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -278,10 +278,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jH-bc-UpX">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-Da-WFo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="RLd-nK-b9Z">
                                                 <rect key="frame" x="16" y="80" width="343" height="210"/>
@@ -289,15 +289,19 @@
                                                     <stackView opaque="NO" tag="1" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="7Hp-jR-QaK">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-pD-Gea">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-pD-Gea" customClass="AKMaskField" customModule="AKMaskField">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="PdP-9T-LFC"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="u7d-BK-Qmd"/>
                                                                 </constraints>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert" textContentType="cc-number"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd} {dddd} {dddd} {dddd}"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="---- ---- ---- ----"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNc-jj-4CM">
                                                                 <rect key="frame" x="0.0" y="90" width="343" height="30"/>
@@ -314,7 +318,7 @@
                                                     <stackView opaque="NO" tag="2" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="OOJ-So-kpk">
                                                         <rect key="frame" x="0.0" y="180" width="343" height="30"/>
                                                         <subviews>
-                                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expire" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="76L-tn-FJa">
+                                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expire" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="76L-tn-FJa" customClass="AKMaskField" customModule="AKMaskField">
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="hFP-xM-HiM"/>
@@ -323,6 +327,10 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dd}/{dddd}"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="--/----"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-TH-T8y">
                                                                 <rect key="frame" x="183" y="0.0" width="160" height="30"/>
@@ -339,7 +347,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMj-X3-4Gq">
-                                                <rect key="frame" x="16" y="481" width="343" height="55"/>
+                                                <rect key="frame" x="16" y="533" width="343" height="55"/>
                                                 <color key="backgroundColor" red="0.35686274509999999" green="0.76470588240000004" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="gY6-yh-oS3"/>
@@ -358,15 +366,27 @@
                                                     <action selector="saveNewCard:" destination="5Ux-ym-U4M" eventType="touchUpInside" id="Cad-CP-vQc"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue6-9f-IQw">
+                                                <rect key="frame" x="8" y="10" width="347" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="puD-Nu-sdQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                                <color key="textColor" red="0.96865457769999996" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1138700321" green="0.1174606904" blue="0.1254914999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="RLd-nK-b9Z" secondAttribute="trailing" constant="16" id="41J-7A-1p1"/>
                                             <constraint firstAttribute="trailing" secondItem="CMj-X3-4Gq" secondAttribute="trailing" constant="16" id="6tu-aS-dfK"/>
                                             <constraint firstItem="RLd-nK-b9Z" firstAttribute="top" secondItem="hH2-Da-WFo" secondAttribute="top" constant="80" id="RrP-Ii-z55"/>
+                                            <constraint firstItem="Ue6-9f-IQw" firstAttribute="top" secondItem="hH2-Da-WFo" secondAttribute="top" constant="10" id="SEn-6F-J5f"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ue6-9f-IQw" secondAttribute="trailing" constant="20" symbolic="YES" id="Zff-kp-ywY"/>
                                             <constraint firstItem="RLd-nK-b9Z" firstAttribute="leading" secondItem="hH2-Da-WFo" secondAttribute="leading" constant="16" id="eXh-fC-AgC"/>
                                             <constraint firstAttribute="bottom" secondItem="CMj-X3-4Gq" secondAttribute="bottom" constant="15" id="jxI-qD-AfO"/>
                                             <constraint firstItem="RLd-nK-b9Z" firstAttribute="centerX" secondItem="hH2-Da-WFo" secondAttribute="centerX" id="oKj-8j-oBk"/>
+                                            <constraint firstItem="Ue6-9f-IQw" firstAttribute="leading" secondItem="hH2-Da-WFo" secondAttribute="leading" constant="8" id="rb0-fb-eL4"/>
                                             <constraint firstItem="CMj-X3-4Gq" firstAttribute="leading" secondItem="hH2-Da-WFo" secondAttribute="leading" constant="16" id="sc9-FA-RjG"/>
                                         </constraints>
                                     </view>
@@ -385,17 +405,21 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="9jH-bc-UpX" secondAttribute="bottom" id="8Yn-6G-LQL"/>
                             <constraint firstItem="9jH-bc-UpX" firstAttribute="leading" secondItem="MAj-cW-cpS" secondAttribute="leading" id="SeP-UF-0RW"/>
-                            <constraint firstItem="9jH-bc-UpX" firstAttribute="top" secondItem="MAj-cW-cpS" secondAttribute="top" constant="116" id="aFx-OP-kL1"/>
+                            <constraint firstItem="9jH-bc-UpX" firstAttribute="top" secondItem="MAj-cW-cpS" secondAttribute="top" constant="64" id="aFx-OP-kL1"/>
                             <constraint firstAttribute="trailing" secondItem="9jH-bc-UpX" secondAttribute="trailing" id="iOC-at-9b6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="moa-We-mpW"/>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="r3m-6b-2UU">
+                        <barButtonItem key="backBarButtonItem" title=" " id="EM2-d3-6KB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardNumberText" destination="SAy-pD-Gea" id="W7V-lF-WpZ"/>
                         <outlet property="cvvText" destination="EUh-TH-T8y" id="kvc-51-2ky"/>
                         <outlet property="expireDateText" destination="76L-tn-FJa" id="7o5-GA-Vyv"/>
                         <outlet property="nameHolderText" destination="BNc-jj-4CM" id="sDQ-Vz-Uu8"/>
                         <outlet property="saveButton" destination="CMj-X3-4Gq" id="Rar-Fc-lYg"/>
+                        <outlet property="titleLabel" destination="Ue6-9f-IQw" id="jUG-hX-zQl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNq-aX-cXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,13 +449,16 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5f-kN-PvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Contacts" id="PG2-Ve-Fpi">
+                    <barButtonItem key="backBarButtonItem" title=" " id="iZj-fj-RXK"/>
+                </navigationItem>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="-671.51424287856082"/>
+            <point key="canvasLocation" x="201" y="27"/>
         </scene>
     </scenes>
     <resources>
-        <image name="creditcard" width="299.5" height="209.5"/>
-        <image name="profile-user" width="384" height="384"/>
-        <image name="refresh" width="384" height="384"/>
+        <image name="creditcard" width="599" height="419"/>
+        <image name="profile-user" width="480" height="480"/>
+        <image name="refresh" width="512" height="512"/>
     </resources>
 </document>

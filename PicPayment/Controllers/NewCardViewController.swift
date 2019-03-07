@@ -16,16 +16,16 @@ class NewCardViewController: UIViewController {
     @IBOutlet weak var cvvText: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.navigationBar.tintColor = UIColor.init(red: 91/255, green: 195/255, blue: 120/255, alpha: 1)
-        navigationItem.title = "Save Card"
         
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.tintColor = UIColor(named: "GreenPic")
+        titleLabel.text = "Save Card"
+        
     }
     
     
@@ -34,40 +34,66 @@ class NewCardViewController: UIViewController {
     }
     
     func setupCustomTextField() {
-        let lineColor = UIColor.init(red: 153/255, green: 153/255, blue: 153/255, alpha: 1)
+        let lineColor = UIColor(named: "GrayPic")!
         
         cardNumberText.setBottomLine(borderColor: lineColor)
-        cardNumberText.setPlaceholder(text: "Card Number", textColor: UIColor.init(red: 153/255, green: 153/255, blue: 153/255, alpha: 1))
+        cardNumberText.setPlaceholder(text: "Card Number", textColor: UIColor(named: "GrayPic")!)
         
         nameHolderText.setBottomLine(borderColor: lineColor)
-        nameHolderText.setPlaceholder(text: "Name Holder", textColor: UIColor.init(red: 153/255, green: 153/255, blue: 153/255, alpha: 1))
+        nameHolderText.setPlaceholder(text: "Name Holder", textColor:UIColor(named: "GrayPic")!)
 
         expireDateText.setBottomLine(borderColor: lineColor)
-        expireDateText.setPlaceholder(text: "Expire Date", textColor: UIColor.init(red: 153/255, green: 153/255, blue: 153/255, alpha: 1))
+        expireDateText.setPlaceholder(text: "Expire Date", textColor: UIColor(named: "GrayPic")!)
         
         cvvText.setBottomLine(borderColor: lineColor)
-        cvvText.setPlaceholder(text: "CVV", textColor: UIColor.init(red: 153/255, green: 153/255, blue: 153/255, alpha: 1))
-    
+        cvvText.setPlaceholder(text: "CVV", textColor:UIColor(named: "GrayPic")!)
+        cvvText.delegate = self
     }
     
     
     @IBAction func saveNewCard(_ sender: UIButton) {
     
+        verifyTextFieldValues()
         
-    
     }
     
+    func verifyTextFieldValues() {
+        
+        guard let card = cardNumberText.text, let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return }
+        
+        if (card.isEmpty || name.isEmpty || expire.isEmpty || cvv.isEmpty) {
+            
+            showAlert("Error", message: "Please fill all fields.")
     
-    
+        }
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/yyyy"
+   
+        if let date2 = formatter.date(from: expire){
+            let components = Calendar.current.dateComponents([.month], from: date, to: date2)
+            
+            if components.month! < 0 {
+                showAlert("Error", message: "Please enter a valid date.")
+            }
+            
+        } else {
+            showAlert("Error", message: "Please enter a valid date.")
 
-    /*
-    // MARK: - Navigation
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
 }
+
+extension NewCardViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let count = text.count + string.count - range.length
+        return count <= 4
+    }
+    
+}
+

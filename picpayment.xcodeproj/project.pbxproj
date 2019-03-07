@@ -15,6 +15,7 @@
 		17387EE32229BAC600A1BA8E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE22229BAC600A1BA8E /* Contact.swift */; };
 		17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE52229C05E00A1BA8E /* ContactsCell.swift */; };
 		17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE72229CD4500A1BA8E /* Transaction.swift */; };
+		174302E822315B84002D42BF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 174302E722315B84002D42BF /* Colors.xcassets */; };
 		DB12686C222C699B00E29E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686B222C699B00E29E61 /* CardsViewController.swift */; };
 		DB12686E222C6E7900E29E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686D222C6E7900E29E61 /* CardCell.swift */; };
 		DB12687022302E9E00E29E61 /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686F22302E9E00E29E61 /* NewCardViewController.swift */; };
@@ -41,6 +42,7 @@
 		17387EE22229BAC600A1BA8E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		17387EE52229C05E00A1BA8E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		17387EE72229CD4500A1BA8E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		174302E722315B84002D42BF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B69456971133CDD7CEA7F87 /* Pods-picpayment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.release.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.release.xcconfig"; sourceTree = "<group>"; };
 		DB12686B222C699B00E29E61 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		DB12686D222C6E7900E29E61 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				DB5229562228CEF8008B0FD5 /* AppDelegate.swift */,
 				DB5229692228D295008B0FD5 /* Constants.swift */,
 				DB52295D2228CEF9008B0FD5 /* Assets.xcassets */,
+				174302E722315B84002D42BF /* Colors.xcassets */,
 				DB5229622228CEF9008B0FD5 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB5229612228CEF9008B0FD5 /* LaunchScreen.storyboard in Resources */,
+				174302E822315B84002D42BF /* Colors.xcassets in Resources */,
 				DB52295E2228CEF9008B0FD5 /* Assets.xcassets in Resources */,
 				DB52295C2228CEF8008B0FD5 /* Main.storyboard in Resources */,
 			);
@@ -327,6 +331,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-picpayment/Pods-picpayment-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AKMaskField/AKMaskField.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
@@ -339,6 +344,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKMaskField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",

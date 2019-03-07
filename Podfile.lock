@@ -1,4 +1,5 @@
 PODS:
+  - AKMaskField (2.0.3)
   - Alamofire (4.8.0)
   - IQKeyboardManagerSwift (6.2.0)
   - KeychainAccess (3.1.2)
@@ -11,6 +12,7 @@ PODS:
   - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
+  - AKMaskField
   - Alamofire (~> 4.7)
   - IQKeyboardManagerSwift
   - KeychainAccess
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AKMaskField
     - Alamofire
     - IQKeyboardManagerSwift
     - KeychainAccess
@@ -29,6 +32,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 495f3969073e9a90b0f9991713e41d043db83b5c
+PODFILE CHECKSUM: 67d4574d5300dfed8289016d729000bfe7688e81
 
 COCOAPODS: 1.5.3

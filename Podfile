@@ -10,5 +10,6 @@ target 'picpayment' do
   pod 'ReachabilitySwift'
   pod 'Alamofire', '~> 4.7'
   pod 'KeychainAccess'
+  pod 'AKMaskField'
 
 end

@@ -17,6 +17,23 @@ enum CardType {
     
     static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
     
+    var type: String {
+        switch self {
+        case .amex:
+            return "Amex"
+        case .diners:
+            return "Diners"
+        case .discover:
+            return "Discover"
+        case .jcb:
+            return "JCB"
+        case .masterCard:
+            return "Mastercard"
+        case .visa:
+            return "Visa"
+        }
+    }
+    
     private var validationRequirements: ValidationRequirement {
         let prefix: [PrefixContainable], length: [Int]
         
@@ -121,7 +138,7 @@ enum CardState {
 }
 
 extension CardState: Equatable {}
-func ==(lhs: CardState, rhs: CardState) -> Bool {
+    func ==(lhs: CardState, rhs: CardState) -> Bool {
     switch (lhs, rhs) {
     case (.invalid, .invalid): return true
     case (let .indeterminate(cards1), let .indeterminate(cards2)): return cards1 == cards2
@@ -153,6 +170,16 @@ extension CardState {
             self = .invalid
         }
     }
+    
+    func typeAndValidadeCard(number: String) -> (String) {
+        if let card = CardType.allValues.first(where: { $0.isValid(number) }) {
+            return (card.type)
+        }
+        else {
+            return "invalid"
+        }
+    }
+    
     
 }
 

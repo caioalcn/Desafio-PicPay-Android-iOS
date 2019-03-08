@@ -11,24 +11,48 @@ import UIKit
 class AmountViewController: UIViewController {
 
     @IBOutlet weak var amountText: UITextField!
+    @IBOutlet weak var cardLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        amountText.becomeFirstResponder()
+        amountText.delegate = self
+        amountText.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        amountText.becomeFirstResponder()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    @objc func myTextFieldDidChange(_ textField: UITextField) {
+        if let amountString = textField.text?.currencyFormatting() {
+            if amountString.isEmpty {
+                textField.text = "0,00"
+            } else {
+                textField.text = amountString
+            }
+        }
+    }
 
+    @IBAction func editCard(_ sender: UIButton) {
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+}
+
+
+
+extension AmountViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let count = text.count + string.count - range.length
+        return count <= 7
+    }
 }

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contacts-->
+        <!--Cards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ContactsViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Cards" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ContactsViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="26.53673163418291"/>
         </scene>
-        <!--Cards View Controller-->
+        <!--Cards-->
         <scene sceneID="3p0-oZ-FmR">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="2Xn-Rk-54e" customClass="CardsViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
@@ -167,14 +167,70 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" name="DarkPic"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="Dzg-YJ-bmf" customClass="CardCell" customModule="picpayment" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" rowHeight="120" id="Dzg-YJ-bmf" customClass="CardCell" customModule="picpayment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dzg-YJ-bmf" id="gnp-Na-Ff4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lL1-wa-3Wk">
+                                                    <rect key="frame" x="10" y="10" width="355" height="100"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" translatesAutoresizingMaskIntoConstraints="NO" id="AKC-86-bxa">
+                                                            <rect key="frame" x="15" y="8" width="91" height="84"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="91" id="jiC-Cp-Kct"/>
+                                                                <constraint firstAttribute="height" constant="84" id="z5S-cg-kMj"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ2-DR-xim">
+                                                            <rect key="frame" x="114" y="31" width="193" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cartão com final 1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISV-hG-YSt">
+                                                            <rect key="frame" x="114" y="54" width="233" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.78853017089999999" green="0.78906565900000003" blue="0.80633032319999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="GrayPic"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="lJ2-DR-xim" secondAttribute="trailing" constant="48" id="9tK-dk-Feo"/>
+                                                        <constraint firstItem="AKC-86-bxa" firstAttribute="leading" secondItem="lL1-wa-3Wk" secondAttribute="leading" constant="15" id="AW7-GY-0fN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AKC-86-bxa" secondAttribute="bottom" constant="8" id="HeK-Ip-JWf"/>
+                                                        <constraint firstItem="lJ2-DR-xim" firstAttribute="leading" secondItem="AKC-86-bxa" secondAttribute="trailing" constant="8" id="Mmz-YO-w28"/>
+                                                        <constraint firstItem="ISV-hG-YSt" firstAttribute="leading" secondItem="AKC-86-bxa" secondAttribute="trailing" constant="8" id="VjO-Ai-uXV"/>
+                                                        <constraint firstItem="lJ2-DR-xim" firstAttribute="top" secondItem="lL1-wa-3Wk" secondAttribute="top" constant="31" id="XMx-yG-lL2"/>
+                                                        <constraint firstItem="ISV-hG-YSt" firstAttribute="top" secondItem="lJ2-DR-xim" secondAttribute="bottom" constant="2" id="ZeE-GB-Ing"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ISV-hG-YSt" secondAttribute="trailing" constant="8" id="cs8-Ut-4hD"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ISV-hG-YSt" secondAttribute="bottom" constant="31" id="fd0-od-lf5"/>
+                                                        <constraint firstItem="AKC-86-bxa" firstAttribute="top" secondItem="lL1-wa-3Wk" secondAttribute="top" constant="8" id="g6A-Tn-G2U"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lL1-wa-3Wk" firstAttribute="leading" secondItem="gnp-Na-Ff4" secondAttribute="leading" constant="10" id="a4t-j0-MpO"/>
+                                                <constraint firstAttribute="bottom" secondItem="lL1-wa-3Wk" secondAttribute="bottom" constant="10" id="a8O-Am-TqT"/>
+                                                <constraint firstAttribute="trailing" secondItem="lL1-wa-3Wk" secondAttribute="trailing" constant="10" id="bGb-x3-v2H"/>
+                                                <constraint firstItem="lL1-wa-3Wk" firstAttribute="top" secondItem="gnp-Na-Ff4" secondAttribute="top" constant="10" id="mnk-Z9-uCH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1137254902" green="0.1174606904" blue="0.1254914999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="cardNumberLabel" destination="ISV-hG-YSt" id="3cw-c6-8yr"/>
+                                            <outlet property="cardTypeLabel" destination="lJ2-DR-xim" id="Frb-e8-5uG"/>
+                                            <segue destination="lPm-be-aBw" kind="show" identifier="amountCardSegue" id="lU1-KV-PZY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -189,7 +245,7 @@
                                     <constraint firstAttribute="height" constant="55" id="n5L-z9-eHj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="Save Card">
+                                <state key="normal" title="Register Card">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -216,6 +272,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i6B-ur-6jh"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Cards" id="laS-bS-iyq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="GBr-9h-iML"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="noCardDataView" destination="Hde-1L-SxT" id="DVT-C9-Spd"/>
                         <outlet property="saveCardButton" destination="Tfk-6e-6Ao" id="4mJ-jy-Bny"/>
@@ -273,16 +332,16 @@
         <!--Amount View Controller-->
         <scene sceneID="vg8-md-ybO">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="lPm-be-aBw" customClass="AmountViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="lPm-be-aBw" customClass="AmountViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cai-Up-rLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-AZ-I3V">
-                                <rect key="frame" x="117" y="80" width="140" height="132"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-AZ-I3V">
+                                <rect key="frame" x="90.5" y="80" width="206.5" height="130"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="EwC-xU-vDU">
-                                        <rect key="frame" x="30" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="63.5" y="0.0" width="80" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="4z9-T5-6sr"/>
@@ -296,10 +355,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@zelda.williams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xer-oE-7Sc">
-                                        <rect key="frame" x="0.0" y="102" width="140" height="30"/>
+                                        <rect key="frame" x="40" y="100" width="126.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="om0-cw-oWD"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="sLp-PS-iNF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,7 +366,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-kr-CIC">
-                                <rect key="frame" x="90" y="260" width="195" height="65"/>
+                                <rect key="frame" x="90" y="258" width="195" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxN-rv-cn0">
                                         <rect key="frame" x="0.0" y="17.5" width="31" height="30"/>
@@ -320,20 +378,20 @@
                                         <color key="textColor" name="GreenPic"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10,00" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gd5-YK-gsm">
-                                        <rect key="frame" x="44" y="0.0" width="151" height="65"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0,00" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gd5-YK-gsm">
+                                        <rect key="frame" x="45" y="0.0" width="150" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0OX-Zm-pKA"/>
                                             <constraint firstAttribute="height" constant="65" id="AWV-K1-Rii"/>
                                         </constraints>
                                         <color key="textColor" name="GreenPic"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="58"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbT-as-ULo">
-                                <rect key="frame" x="16" y="592" width="343" height="55"/>
+                                <rect key="frame" x="16" y="398" width="343" height="55"/>
                                 <color key="backgroundColor" name="GreenPic"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="2Kc-hD-Kra"/>
@@ -350,7 +408,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Je-u5-1Bo">
-                                <rect key="frame" x="78.5" y="350" width="218" height="30"/>
+                                <rect key="frame" x="78.5" y="348" width="218" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mastercard 1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-st-YR8">
                                         <rect key="frame" x="0.0" y="4" width="150" height="22"/>
@@ -381,29 +439,36 @@
                                         <state key="normal" title="EDIT">
                                             <color key="titleColor" name="GreenPic"/>
                                         </state>
+                                        <connections>
+                                            <action selector="editCard:" destination="lPm-be-aBw" eventType="touchUpInside" id="8wV-3z-SQq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="DarkPic"/>
                         <constraints>
-                            <constraint firstItem="l0i-VD-Z6e" firstAttribute="bottom" secondItem="LbT-as-ULo" secondAttribute="bottom" constant="20" id="0jc-fe-4Tl"/>
-                            <constraint firstItem="L8q-AZ-I3V" firstAttribute="top" secondItem="cai-Up-rLh" secondAttribute="top" constant="80" id="4ra-JO-mNz"/>
+                            <constraint firstItem="l0i-VD-Z6e" firstAttribute="trailing" secondItem="L8q-AZ-I3V" secondAttribute="trailing" constant="78" id="4ig-bE-Hit"/>
                             <constraint firstItem="l0i-VD-Z6e" firstAttribute="trailing" secondItem="LbT-as-ULo" secondAttribute="trailing" constant="16" id="7M1-Lv-3UU"/>
                             <constraint firstItem="a8S-kr-CIC" firstAttribute="top" secondItem="L8q-AZ-I3V" secondAttribute="bottom" constant="48" id="BRL-dN-Ae3"/>
                             <constraint firstItem="a8S-kr-CIC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="l0i-VD-Z6e" secondAttribute="leading" constant="90" id="BtN-LL-pcw"/>
                             <constraint firstItem="4Je-u5-1Bo" firstAttribute="top" secondItem="a8S-kr-CIC" secondAttribute="bottom" constant="25" id="JV1-Pz-lDZ"/>
                             <constraint firstItem="4Je-u5-1Bo" firstAttribute="centerX" secondItem="cai-Up-rLh" secondAttribute="centerX" id="O2H-UQ-bT3"/>
+                            <constraint firstItem="L8q-AZ-I3V" firstAttribute="top" secondItem="l0i-VD-Z6e" secondAttribute="top" constant="16" id="T4p-7R-Ihb"/>
                             <constraint firstItem="l0i-VD-Z6e" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="a8S-kr-CIC" secondAttribute="trailing" constant="90" id="TAG-j1-8di"/>
-                            <constraint firstItem="l0i-VD-Z6e" firstAttribute="trailing" secondItem="L8q-AZ-I3V" secondAttribute="trailing" constant="118" id="wId-9w-fEY"/>
+                            <constraint firstItem="LbT-as-ULo" firstAttribute="top" secondItem="4Je-u5-1Bo" secondAttribute="bottom" constant="20" id="d5O-hz-R4w"/>
+                            <constraint firstItem="L8q-AZ-I3V" firstAttribute="leading" secondItem="l0i-VD-Z6e" secondAttribute="leading" constant="90.5" id="dxT-qb-4WK"/>
                             <constraint firstItem="LbT-as-ULo" firstAttribute="leading" secondItem="l0i-VD-Z6e" secondAttribute="leading" constant="16" id="xi7-gQ-9bu"/>
                             <constraint firstItem="a8S-kr-CIC" firstAttribute="centerX" secondItem="cai-Up-rLh" secondAttribute="centerX" id="y4X-q5-EzM"/>
-                            <constraint firstItem="L8q-AZ-I3V" firstAttribute="leading" secondItem="l0i-VD-Z6e" secondAttribute="leading" constant="117" id="zqB-Es-bfb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l0i-VD-Z6e"/>
                     </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="GJn-8m-im1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Sf5-Cj-N0J"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountText" destination="gd5-YK-gsm" id="rcm-Ve-QLY"/>
+                        <outlet property="cardLabel" destination="tUF-st-YR8" id="rHo-Sn-PG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXe-9B-BZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -599,14 +664,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="creditcard" width="299.5" height="209.5"/>
-        <image name="profile-user" width="384" height="384"/>
-        <image name="refresh" width="384" height="384"/>
+        <image name="creditcard" width="599" height="419"/>
+        <image name="profile-user" width="480" height="480"/>
+        <image name="refresh" width="512" height="512"/>
         <namedColor name="DarkPic">
             <color red="0.11372549019607843" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GrayPic">
+            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GreenPic">
             <color red="0.35686274509803922" green="0.76470588235294112" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lU1-KV-PZY"/>
+    </inferredMetricsTieBreakers>
 </document>

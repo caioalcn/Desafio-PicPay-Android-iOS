@@ -34,7 +34,8 @@ class ContactsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(named: "GreenPic")
         navigationController?.view.backgroundColor = UIColor(named: "DarkPic")
         navigationItem.searchController = searchController
-
+        navigationItem.title = "Contacts"
+            
         searchController.searchBar.barStyle = .black
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Who you want to pay?"

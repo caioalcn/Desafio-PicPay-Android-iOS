@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class NewCardViewController: UIViewController {
-
+    
     @IBOutlet weak var cardNumberText: UITextField!
     @IBOutlet weak var nameHolderText: UITextField!
     @IBOutlet weak var expireDateText: UITextField!
@@ -17,8 +18,9 @@ class NewCardViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    
+
+    let keychain = Keychain(service: "ccSecurity")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class NewCardViewController: UIViewController {
     
     
     override func viewDidLayoutSubviews() {
-       setupCustomTextField()
+        setupCustomTextField()
     }
     
     func setupCustomTextField() {
@@ -41,7 +43,7 @@ class NewCardViewController: UIViewController {
         
         nameHolderText.setBottomLine(borderColor: lineColor)
         nameHolderText.setPlaceholder(text: "Name Holder", textColor:UIColor(named: "GrayPic")!)
-
+        
         expireDateText.setBottomLine(borderColor: lineColor)
         expireDateText.setPlaceholder(text: "Expire Date", textColor: UIColor(named: "GrayPic")!)
         
@@ -52,25 +54,24 @@ class NewCardViewController: UIViewController {
     
     
     @IBAction func saveNewCard(_ sender: UIButton) {
-    
-        verifyTextFieldValues()
+        
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "amountSegue" {
-//            if (verifyTextFieldValues()){
-//                let amountView = segue.destination as! AmountViewController
-//
-//            } else {
-//                return
-//            }
-//
-//
-//
-//        }
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "amountSegue" {
+            if (verifyTextFieldValues()){
+                let amountView = segue.destination as! AmountViewController
+                
+                saveCardKeychain()
+                
+            } else {
+                return
+            }
+
+        }
+        
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "amountSegue" {
@@ -100,7 +101,7 @@ class NewCardViewController: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/yyyy"
-   
+        
         if let date2 = formatter.date(from: expire){
             let components = Calendar.current.dateComponents([.month], from: date, to: date2)
             
@@ -115,6 +116,20 @@ class NewCardViewController: UIViewController {
         }
         
         return true
+    }
+    
+    func saveCardKeychain() {
+        
+        guard let cardNumber = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return }
+        
+        let type = C
+        
+        let cc = CreditCard(number: cardNumber, type: type, name: name, expire: expire, cvv: cvv)
+        let arrayCC = [cc]
+        
+        let data = try? JSONEncoder().encode(arrayCC)
+        keychain[data: "cards"] = data
+    
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class CardsViewController: UIViewController {
 
@@ -14,28 +15,29 @@ class CardsViewController: UIViewController {
     @IBOutlet var noCardDataView: UIView!
     @IBOutlet weak var saveCardButton: UIButton!
     
-    
+    let keychain = Keychain(service: "ccSecurity")
+    var creditCards = [CreditCard]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        navigationItem.title = "Cards"
+
+        if let data = keychain[data: "cards"] {
+            if let ccArray = try? JSONDecoder().decode([CreditCard].self, from: data) {
+                creditCards = ccArray
+                setupNoDataView(isHidden: true)
+            }
+        }
+
         tableView.backgroundView = noCardDataView
-        navigationItem.title = ""
 
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupNoDataView(isHidden: Bool) {
+        noCardDataView.isHidden = isHidden
     }
-    */
-
+    
     @IBAction func saveCard(_ sender: UIButton) {
     }
     
@@ -43,12 +45,14 @@ class CardsViewController: UIViewController {
 
 extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return creditCards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
+        
+        cell.setupCardCell(card: creditCards[indexPath.row])
         
         return cell
         

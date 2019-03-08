@@ -16,6 +16,8 @@
 		17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE52229C05E00A1BA8E /* ContactsCell.swift */; };
 		17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17387EE72229CD4500A1BA8E /* Transaction.swift */; };
 		174302E822315B84002D42BF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 174302E722315B84002D42BF /* Colors.xcassets */; };
+		17BC31702232CC8A00AA80B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC316F2232CC8A00AA80B5 /* String.swift */; };
+		17BC31722232E1B900AA80B5 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC31712232E1B900AA80B5 /* CreditCard.swift */; };
 		DB12686C222C699B00E29E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686B222C699B00E29E61 /* CardsViewController.swift */; };
 		DB12686E222C6E7900E29E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686D222C6E7900E29E61 /* CardCell.swift */; };
 		DB12687022302E9E00E29E61 /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686F22302E9E00E29E61 /* NewCardViewController.swift */; };
@@ -45,6 +47,8 @@
 		17387EE52229C05E00A1BA8E /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		17387EE72229CD4500A1BA8E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		174302E722315B84002D42BF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		17BC316F2232CC8A00AA80B5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		17BC31712232E1B900AA80B5 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		5B69456971133CDD7CEA7F87 /* Pods-picpayment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.release.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.release.xcconfig"; sourceTree = "<group>"; };
 		DB12686B222C699B00E29E61 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		DB12686D222C6E7900E29E61 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			children = (
 				17387EE22229BAC600A1BA8E /* Contact.swift */,
 				17387EE72229CD4500A1BA8E /* Transaction.swift */,
+				17BC31712232E1B900AA80B5 /* CreditCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				DB5229702228D2D9008B0FD5 /* AlertView.swift */,
 				DB12687122303B3900E29E61 /* TextField.swift */,
 				DBC87FC42232010100838E6E /* CardParser.swift */,
+				17BC316F2232CC8A00AA80B5 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,11 +384,13 @@
 				17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */,
 				17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */,
 				DB12687022302E9E00E29E61 /* NewCardViewController.swift in Sources */,
+				17BC31722232E1B900AA80B5 /* CreditCard.swift in Sources */,
 				17387EE32229BAC600A1BA8E /* Contact.swift in Sources */,
 				DB12686E222C6E7900E29E61 /* CardCell.swift in Sources */,
 				DB5229572228CEF8008B0FD5 /* AppDelegate.swift in Sources */,
 				17387EDE2229B98100A1BA8E /* APIContacts.swift in Sources */,
 				DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */,
+				17BC31702232CC8A00AA80B5 /* String.swift in Sources */,
 				DB12687222303B3900E29E61 /* TextField.swift in Sources */,
 				17387EDC2229B92300A1BA8E /* RouterEndpoint.swift in Sources */,
 				17387EE02229B99000A1BA8E /* APIPayments.swift in Sources */,

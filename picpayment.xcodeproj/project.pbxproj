@@ -30,6 +30,8 @@
 		DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229702228D2D9008B0FD5 /* AlertView.swift */; };
 		DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229772228D318008B0FD5 /* HUDHelper.swift */; };
 		DB52297A2228D325008B0FD5 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5229792228D325008B0FD5 /* ReachabilityManager.swift */; };
+		DBC87FC52232010200838E6E /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC87FC42232010100838E6E /* CardParser.swift */; };
+		DBC87FC72232055200838E6E /* AmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC87FC62232055200838E6E /* AmountViewController.swift */; };
 		E01D855C897133C1E1FD165D /* Pods_picpayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F652305196EA7A8950CBB288 /* Pods_picpayment.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		DB5229702228D2D9008B0FD5 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DB5229772228D318008B0FD5 /* HUDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDHelper.swift; sourceTree = "<group>"; };
 		DB5229792228D325008B0FD5 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		DBC87FC42232010100838E6E /* CardParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
+		DBC87FC62232055200838E6E /* AmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountViewController.swift; sourceTree = "<group>"; };
 		F652305196EA7A8950CBB288 /* Pods_picpayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_picpayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF41C64EC1C0C168778256BC /* Pods-picpayment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +185,7 @@
 				DB52296E2228D2CE008B0FD5 /* Date.swift */,
 				DB5229702228D2D9008B0FD5 /* AlertView.swift */,
 				DB12687122303B3900E29E61 /* TextField.swift */,
+				DBC87FC42232010100838E6E /* CardParser.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				DB5229582228CEF8008B0FD5 /* ContactViewController.swift */,
 				DB12686B222C699B00E29E61 /* CardsViewController.swift */,
 				DB12686F22302E9E00E29E61 /* NewCardViewController.swift */,
+				DBC87FC62232055200838E6E /* AmountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			files = (
 				DB12686C222C699B00E29E61 /* CardsViewController.swift in Sources */,
 				DB5229592228CEF8008B0FD5 /* ContactViewController.swift in Sources */,
+				DBC87FC52232010200838E6E /* CardParser.swift in Sources */,
 				DB52296F2228D2CE008B0FD5 /* Date.swift in Sources */,
 				17387EE82229CD4500A1BA8E /* Transaction.swift in Sources */,
 				17387EE62229C05E00A1BA8E /* ContactsCell.swift in Sources */,
@@ -384,6 +391,7 @@
 				DB5229782228D318008B0FD5 /* HUDHelper.swift in Sources */,
 				DB52296A2228D295008B0FD5 /* Constants.swift in Sources */,
 				DB5229712228D2D9008B0FD5 /* AlertView.swift in Sources */,
+				DBC87FC72232055200838E6E /* AmountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

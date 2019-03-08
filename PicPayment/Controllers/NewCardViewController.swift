@@ -57,14 +57,44 @@ class NewCardViewController: UIViewController {
         
     }
     
-    func verifyTextFieldValues() {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "amountSegue" {
+//            if (verifyTextFieldValues()){
+//                let amountView = segue.destination as! AmountViewController
+//
+//            } else {
+//                return
+//            }
+//
+//
+//
+//        }
+//
+//    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "amountSegue" {
+            if (!verifyTextFieldValues()){
+                return false
+            }
+        }
+        return true
+    }
+    
+    
+    func verifyTextFieldValues() -> Bool {
         
-        guard let card = cardNumberText.text, let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return }
+        guard let card = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return false }
         
         if (card.isEmpty || name.isEmpty || expire.isEmpty || cvv.isEmpty) {
             
             showAlert("Error", message: "Please fill all fields.")
-    
+            return false
+            
+        } else if (CardState(fromNumber: card) == .invalid) {
+            showAlert("Error", message: "Please enter a valid card.")
+            return false
+
         }
         
         let date = Date()
@@ -76,13 +106,15 @@ class NewCardViewController: UIViewController {
             
             if components.month! < 0 {
                 showAlert("Error", message: "Please enter a valid date.")
+                return false
             }
             
         } else {
             showAlert("Error", message: "Please enter a valid date.")
-
+            return false
         }
-
+        
+        return true
     }
     
 }

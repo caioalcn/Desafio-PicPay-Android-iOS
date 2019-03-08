@@ -93,23 +93,28 @@ class ContactsViewController: UIViewController {
 
     
     func getContacts() {
-        activityIndicator.startAnimating()
-        APIContacts.getContacts { (result, status) in
-            switch status {
-            case .success(_):
-                
-                guard let c = result else { self.setupNoDataView(text: "No Data Found!", isHidden: false)
-                    return }
-                
-                self.contacts = c
-                
-                self.tableView.reloadData()
-                
-            case .failure(let error):
-                self.activityIndicator.stopAnimating()
-                self.setupNoDataView(text: "Error Loading Data!", isHidden: false)
-                self.showAlert("Error", message: "\(error)")
+        if (ReachabilityManager.shared.isConnectedToNetwork()){
+            activityIndicator.startAnimating()
+            APIContacts.getContacts { (result, status) in
+                switch status {
+                case .success(_):
+                    
+                    guard let c = result else { self.setupNoDataView(text: "No Data Found!", isHidden: false)
+                        return }
+                    
+                    self.contacts = c
+                    
+                    self.tableView.reloadData()
+                    
+                case .failure(let error):
+                    self.activityIndicator.stopAnimating()
+                    self.setupNoDataView(text: "Error Loading Data!", isHidden: false)
+                    self.showAlert("Error", message: "\(error)")
+                }
             }
+        } else {
+            self.showAlert("Error", message: "Please check your internet connection.")
+            self.setupNoDataView(text: "Error internet connection", isHidden: false)
         }
     }
     

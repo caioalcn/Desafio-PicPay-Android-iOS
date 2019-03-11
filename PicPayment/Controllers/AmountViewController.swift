@@ -9,6 +9,12 @@
 import UIKit
 import SDWebImage
 
+
+protocol AmountViewControllerDelegate: class {
+    func setupUI(receipt: Transaction, card: CreditCard)
+}
+
+
 class AmountViewController: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
@@ -22,7 +28,15 @@ class AmountViewController: UIViewController {
     var ccSelected: CreditCard?
     var transaction: Transaction?
     
+    weak var delegate: AmountViewControllerDelegate?
+    
     @IBOutlet weak var childBottomConstraint: NSLayoutConstraint!
+    
+    private lazy var tapRecognizer: UIPanGestureRecognizer = {
+        let recognizer = UIPanGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(handlePan(recognizer:)))
+        return recognizer
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +45,7 @@ class AmountViewController: UIViewController {
         setupInfo()
         amountText.delegate = self
         amountText.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        self.view.addGestureRecognizer(tapRecognizer)
         
     }
     
@@ -44,7 +59,7 @@ class AmountViewController: UIViewController {
         if segue.identifier == "receiptSegue" {
             
             let receiptController = segue.destination as? ReceiptViewController
-            //receiptController?.valuePaidLabel.text = "njkl"
+            delegate = receiptController
         }
     }
     
@@ -55,8 +70,41 @@ class AmountViewController: UIViewController {
                 break
             }
         }
-        
     }
+    
+    @objc func handlePan(recognizer:UIPanGestureRecognizer) {
+        
+        let translation = recognizer.translation(in: self.view)
+        switch recognizer.state {
+        case .began: break
+            
+        case .changed:
+            if self.childBottomConstraint.constant == 0 && translation.y <= 0.0 {
+                self.childBottomConstraint.constant = 0
+            } else {
+                self.childBottomConstraint.constant += translation.y
+            }
+            
+            recognizer.setTranslation(.zero, in: self.view)
+        case .ended:
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+                if self.childBottomConstraint.constant <= 200 {
+                    self.childBottomConstraint.constant = 0
+                } else {
+                    self.childBottomConstraint.constant = 470
+                }
+                self.view.layoutIfNeeded()
+            }) { (status) in
+                if  self.childBottomConstraint.constant == 470 {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                
+            }
+            
+        default: ()
+        }
+    }
+    
     func setupInfo() {
         guard let user = userPay else { return }
         guard let card = ccSelected else { return }
@@ -115,13 +163,14 @@ class AmountViewController: UIViewController {
         guard let user = userPay else { return }
         guard let card = ccSelected else { return }
         
-        if let number = card.number, let cvv = card.cvv, let expire = card.expire, let id = user.id, let amount = amountText.text?.replacingOccurrences(of: ",", with: ".") {
-            if let cvvCast = Int(cvv), let amountCast = Double(amount) {
-                payContact(cardNumber: number, cvv: cvvCast, value: amountCast, expireDate: expire, userId: id)
+        if let number = card.number, let cvv = card.cvv, let expire = card.expire, let id = user.id, let amount = amountText.text {
+           let doubleAmount = amount.currencyToDouble()
+                if let cvvCast = Int(cvv) {
+                    payContact(cardNumber: number, cvv: cvvCast, value: doubleAmount, expireDate: expire, userId: id)
+                }
             }
-        }
-        
     }
+
     
     func payContact(cardNumber: String, cvv: Int, value: Double, expireDate: String, userId: Int) {
         if (ReachabilityManager.shared.isConnectedToNetwork()){
@@ -129,13 +178,14 @@ class AmountViewController: UIViewController {
             APIPayments.pay(cardNumber: "1111111111111111", cvv: cvv, value: value, expireDate: expireDate, destinationUserId: userId) { (result, status) in
                 switch status {
                 case .success(_):
-                    self.transaction = result
+                    guard let rec = result else { return }
                     UIView.animate(withDuration: 0.5) {
                         self.childBottomConstraint.constant = 0
                         self.view.layoutIfNeeded()
                     }
-                case .failure(let error):
-                    self.showAlert("Error", message: "\(error)")
+                    self.delegate?.setupUI(receipt: rec, card: self.ccSelected!)
+                case .failure(_):
+                    self.showAlert("Error", message: "Please check your internet connection.")
                 }
                 HUDHelper.hideLoading()
             }
@@ -153,6 +203,5 @@ extension AmountViewController: UITextFieldDelegate {
         
         return count <= 7
     }
-    
-    
 }
+

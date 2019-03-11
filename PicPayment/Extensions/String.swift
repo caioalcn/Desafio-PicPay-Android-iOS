@@ -35,4 +35,22 @@ extension  String {
         
         return formatter.string(from: number)!
     }
+    
+    func currencyToDouble() -> Double {
+        
+        if self.contains(".") {
+            let thousand = self.replacingOccurrences(of: ".", with: "")
+            let changedSeparator = thousand.replacingOccurrences(of: ",", with: ".")
+            guard let doubleValue = Double(changedSeparator) else { return 0.0 }
+            
+            return doubleValue
+        } else {
+            let changedSeparator = self.replacingOccurrences(of: ",", with: ".")
+            guard let doubleValue = Double(changedSeparator) else { return 0.0 }
+            
+            return doubleValue
+        }
+    }
+    
+    
 }

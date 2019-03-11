@@ -106,10 +106,10 @@ class ContactsViewController: UIViewController {
                     
                     self.tableView.reloadData()
                     
-                case .failure(let error):
+                case .failure(_):
                     self.activityIndicator.stopAnimating()
                     self.setupNoDataView(text: "Error Loading Data!", isHidden: false)
-                    self.showAlert("Error", message: "\(error)")
+                    self.showAlert("Error", message: "Please check your internet connection.")
                 }
             }
         } else {

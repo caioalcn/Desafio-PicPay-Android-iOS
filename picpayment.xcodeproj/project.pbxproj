@@ -18,6 +18,7 @@
 		174302E822315B84002D42BF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 174302E722315B84002D42BF /* Colors.xcassets */; };
 		17BC31702232CC8A00AA80B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC316F2232CC8A00AA80B5 /* String.swift */; };
 		17BC31722232E1B900AA80B5 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC31712232E1B900AA80B5 /* CreditCard.swift */; };
+		DB0686CB22361557001C2EE4 /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0686CA22361557001C2EE4 /* ReceiptViewController.swift */; };
 		DB12686C222C699B00E29E61 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686B222C699B00E29E61 /* CardsViewController.swift */; };
 		DB12686E222C6E7900E29E61 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686D222C6E7900E29E61 /* CardCell.swift */; };
 		DB12687022302E9E00E29E61 /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12686F22302E9E00E29E61 /* NewCardViewController.swift */; };
@@ -50,6 +51,7 @@
 		17BC316F2232CC8A00AA80B5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		17BC31712232E1B900AA80B5 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		5B69456971133CDD7CEA7F87 /* Pods-picpayment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-picpayment.release.xcconfig"; path = "Pods/Target Support Files/Pods-picpayment/Pods-picpayment.release.xcconfig"; sourceTree = "<group>"; };
+		DB0686CA22361557001C2EE4 /* ReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
 		DB12686B222C699B00E29E61 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		DB12686D222C6E7900E29E61 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		DB12686F22302E9E00E29E61 /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				DB12686B222C699B00E29E61 /* CardsViewController.swift */,
 				DB12686F22302E9E00E29E61 /* NewCardViewController.swift */,
 				DBC87FC62232055200838E6E /* AmountViewController.swift */,
+				DB0686CA22361557001C2EE4 /* ReceiptViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				DB12687022302E9E00E29E61 /* NewCardViewController.swift in Sources */,
 				17BC31722232E1B900AA80B5 /* CreditCard.swift in Sources */,
 				17387EE32229BAC600A1BA8E /* Contact.swift in Sources */,
+				DB0686CB22361557001C2EE4 /* ReceiptViewController.swift in Sources */,
 				DB12686E222C6E7900E29E61 /* CardCell.swift in Sources */,
 				DB5229572228CEF8008B0FD5 /* AppDelegate.swift in Sources */,
 				17387EDE2229B98100A1BA8E /* APIContacts.swift in Sources */,

@@ -20,7 +20,8 @@ class NewCardViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
 
     let keychain = Keychain(service: "ccSecurity")
-
+    var user: Contact?
+    var card: CreditCard?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,45 +55,32 @@ class NewCardViewController: UIViewController {
     
     
     @IBAction func saveNewCard(_ sender: UIButton) {
-        
-        
+        if verifyTextFieldValues() {
+            performSegue(withIdentifier: "amountSegue", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "amountSegue" {
-            if (verifyTextFieldValues()){
-                let amountView = segue.destination as! AmountViewController
-                
-                saveCardKeychain()
-                
-            } else {
-                return
-            }
+            let amountController = segue.destination as! AmountViewController
 
+            saveCardKeychain()
+            amountController.userPay = user
+            amountController.ccSelected = card
         }
-        
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "amountSegue" {
-            if (!verifyTextFieldValues()){
-                return false
-            }
-        }
-        return true
     }
     
     
     func verifyTextFieldValues() -> Bool {
         
-        guard let card = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return false }
+        guard let cardNumber = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return false }
         
-        if (card.isEmpty || name.isEmpty || expire.isEmpty || cvv.isEmpty) {
+        if (cardNumber.isEmpty || name.isEmpty || expire.isEmpty || cvv.isEmpty) {
             
             showAlert("Error", message: "Please fill all fields.")
             return false
             
-        } else if (CardState(fromNumber: card) == .invalid) {
+        } else if !(CreditCardValidator.validate(string: cardNumber)) {
             showAlert("Error", message: "Please enter a valid card.")
             return false
 
@@ -115,21 +103,57 @@ class NewCardViewController: UIViewController {
             return false
         }
         
+        if (cvv.count <= 2) {
+            showAlert("Error", message: "Please enter a valid cvv.")
+            return false
+        }
+        
+        if let data = keychain[data: "cards"] {
+            if let ccArray = try? JSONDecoder().decode([CreditCard].self, from: data) {
+                let type = CreditCardValidator.type(from: cardNumber)
+                
+                card = CreditCard(number: cardNumber.replacingOccurrences(of: "-", with: ""), type: type, name: name, expire: expire, cvv: cvv)
+                if !(ccArray.contains(where: {$0.number == card?.number})) {
+                    return true
+                } else {
+                    showAlert("Error", message: "Card already register!")
+
+                    return false
+                }
+            }
+        }
+        
         return true
     }
     
     func saveCardKeychain() {
         
-        guard let cardNumber = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text, let expire = expireDateText.text, let cvv = cvvText.text else { return }
+        guard let cardNumber = cardNumberText.text?.replacingOccurrences(of: " ", with: ""), let name = nameHolderText.text?.uppercased(), let expire = expireDateText.text, let cvv = cvvText.text else { return }
         
-        let type = C
+        var dataToSave: Data?
+        var type = ""
         
-        let cc = CreditCard(number: cardNumber, type: type, name: name, expire: expire, cvv: cvv)
-        let arrayCC = [cc]
         
-        let data = try? JSONEncoder().encode(arrayCC)
-        keychain[data: "cards"] = data
-    
+        if let data = keychain[data: "cards"] {
+            if var ccArray = try? JSONDecoder().decode([CreditCard].self, from: data) {
+                
+                type = CreditCardValidator.type(from: cardNumber)
+                card = CreditCard(number: cardNumber.replacingOccurrences(of: "-", with: ""), type: type, name: name, expire: expire, cvv: cvv)
+                ccArray.append(card!)
+
+                dataToSave = try? JSONEncoder().encode(ccArray)
+            }
+        } else {
+
+            type = CreditCardValidator.type(from: cardNumber) 
+            card = CreditCard(number: cardNumber.replacingOccurrences(of: "-", with: ""), type: type, name: name, expire: expire, cvv: cvv)
+            let arrayCC = [card]
+            
+            dataToSave = try? JSONEncoder().encode(arrayCC)
+        }
+        
+        keychain[data: "cards"] = dataToSave
+
     }
     
 }

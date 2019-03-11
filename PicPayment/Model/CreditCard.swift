@@ -22,5 +22,4 @@ struct CreditCard: Codable {
         self.expire = expire
         self.cvv = cvv
     }
-    
 }

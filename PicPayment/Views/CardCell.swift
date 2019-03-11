@@ -20,7 +20,18 @@ class CardCell: UITableViewCell {
 
     func setupCardCell(card: CreditCard) {
         
-        cardNumberLabel.text = card.number
+        if card.type == "Amex" {
+            if let threeDigits = card.number?.suffix(3){
+                cardNumberLabel.text = "Card ends with " + threeDigits
+            }
+        } else {
         
+            if let fourDigits = card.number?.suffix(4){
+                cardNumberLabel.text = "Card ends with " + fourDigits
+            }
+        }
+        
+        cardTypeLabel.text = card.type
+
     }
 }

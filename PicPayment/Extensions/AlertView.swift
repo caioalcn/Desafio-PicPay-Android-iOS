@@ -21,22 +21,4 @@ extension UIViewController {
         }
     }
     
-    func showAlertTwoOptions(_ title: String, message: String, buttonConfirm: String, buttonCancel: String) {
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: buttonConfirm, style: .default) {
-            UIAlertAction in
-        }
-        let cancelAction = UIAlertAction(title: buttonCancel, style: .cancel) {
-            UIAlertAction in
-        }
-        
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
 }

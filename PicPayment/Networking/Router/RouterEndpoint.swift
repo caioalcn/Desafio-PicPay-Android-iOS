@@ -12,7 +12,7 @@ import Alamofire
 enum RouterEndpoint: APIConfiguration {
     
     case users
-    case transaction(cardNumber: String, cvv: Int, value: Double, expiryDate: String, destinationUserIdString: Int)
+    case transaction(cardNumber: String, cvv: Int, value: Double, expireDate: String, destinationUserIdString: Int)
     
     var method: HTTPMethod {
         switch self {
@@ -46,8 +46,8 @@ enum RouterEndpoint: APIConfiguration {
             
             return [:]
             
-        case .transaction(let cardNumber, let cvv, let value, let expiryDate, let destinationUserId):
-            let params = ["card_number": cardNumber, "cvv": cvv, "value": value, "expiry_date": expiryDate, "destination_user_id": destinationUserId] as [String: Any]
+        case .transaction(let cardNumber, let cvv, let value, let expireDate, let destinationUserId):
+            let params = ["card_number": cardNumber, "cvv": cvv, "value": value, "expiry_date": expireDate, "destination_user_id": destinationUserId] as [String: Any]
             
             return params
         }

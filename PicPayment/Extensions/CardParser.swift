@@ -1,230 +1,149 @@
 //
-//  CardParser.swift
+//  CreditCardValidator.swift
 //
-//  Created by Jason Clark on 6/28/16.
-//  Copyright © 2016 Raizlabs. All rights reserved.
+//  Created by Vitaliy Kuzmenko on 02/06/15.
+//  Copyright (c) 2015. All rights reserved.
 //
 import Foundation
 
-//MARK: - CardType
-enum CardType {
-    case amex
-    case diners
-    case discover
-    case jcb
-    case masterCard
-    case visa
+class CreditCardValidator {
     
-    static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
+    let shared = CreditCardValidator()
     
-    var type: String {
-        switch self {
-        case .amex:
-            return "Amex"
-        case .diners:
-            return "Diners"
-        case .discover:
-            return "Discover"
-        case .jcb:
-            return "JCB"
-        case .masterCard:
-            return "Mastercard"
-        case .visa:
-            return "Visa"
+    static var types: [CreditCardValidationType] = {
+        var types = [CreditCardValidationType]()
+        for object in CreditCardValidator.typesCard {
+            types.append(CreditCardValidationType(dict: object))
         }
-    }
+        return types
+    }()
     
-    private var validationRequirements: ValidationRequirement {
-        let prefix: [PrefixContainable], length: [Int]
-        
-        switch self {
-            /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
-            
-        case .amex:         prefix = ["34", "37"]
-        length = [15]
-            
-        case .diners:       prefix = ["300"..."305", "309", "36", "38"..."39"]
-        length = [14]
-            
-        case .discover:     prefix = ["6011", "65", "644"..."649", "622126"..."622925"]
-        length = [16]
-            
-        case .jcb:          prefix = ["3528"..."3589"]
-        length = [16]
-            
-        case .masterCard:   prefix = ["51"..."55", "2221"..."2720"]
-        length = [16]
-            
-        case .visa:         prefix = ["4"]
-        length = [13, 16, 19]
-            
-        }
-        
-        return ValidationRequirement(prefixes: prefix, lengths: length)
-    }
+    public init() { }
     
-    var segmentGroupings: [Int] {
-        switch self {
-        case .amex:      return [4, 6, 5]
-        case .diners:    return [4, 6, 4]
-        default:         return [4, 4, 4, 4]
-        }
-    }
-    
-    var maxLength: Int {
-        return validationRequirements.lengths.max() ?? 16
-    }
-    
-    var cvvLength: Int {
-        switch self {
-        case .amex: return 4
-        default: return 3
-        }
-    }
-    
-    func isValid(_ accountNumber: String) -> Bool {
-        return validationRequirements.isValid(accountNumber) && CardType.luhnCheck(accountNumber)
-    }
-    
-    func isPrefixValid(_ accountNumber: String) -> Bool {
-        return validationRequirements.isPrefixValid(accountNumber)
-    }
-    
-}
-
-fileprivate extension CardType {
-    
-    struct ValidationRequirement {
-        let prefixes: [PrefixContainable]
-        let lengths: [Int]
-        
-        func isValid(_ accountNumber: String) -> Bool {
-            return isLengthValid(accountNumber) && isPrefixValid(accountNumber)
-        }
-        
-        func isPrefixValid(_ accountNumber: String) -> Bool {
-            guard prefixes.count > 0 else { return true }
-            return prefixes.contains { $0.hasCommonPrefix(with: accountNumber) }
-        }
-        
-        func isLengthValid(_ accountNumber: String) -> Bool {
-            guard lengths.count > 0 else { return true }
-            return lengths.contains { accountNumber.length == $0 }
-        }
-    }
-    
-    // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
-    static func luhnCheck(_ cardNumber: String) -> Bool {
-        var sum = 0
-        let reversedCharacters = cardNumber.reversed().map { String($0) }
-        for (idx, element) in reversedCharacters.enumerated() {
-            guard let digit = Int(element) else { return false }
-            switch ((idx % 2 == 1), digit) {
-            case (true, 9): sum += 9
-            case (true, 0...8): sum += (digit * 2) % 9
-            default: sum += digit
+    /**
+     Get card type from string
+     
+     - parameter string: card number string
+     
+     - returns: CreditCardValidationType structure
+     */
+    static func type(from string: String) -> String {
+        for type in types {
+            let predicate = NSPredicate(format: "SELF MATCHES %@", type.regex)
+            let numbersString = self.onlyNumbers(string: string)
+            if predicate.evaluate(with: numbersString) {
+                return type.name
             }
         }
-        return sum % 10 == 0
+        return "Invalid"
     }
     
-}
-
-//MARK: - CardState
-enum CardState {
-    case identified(CardType)
-    case indeterminate([CardType])
-    case invalid
-}
-
-extension CardState: Equatable {}
-    func ==(lhs: CardState, rhs: CardState) -> Bool {
-    switch (lhs, rhs) {
-    case (.invalid, .invalid): return true
-    case (let .indeterminate(cards1), let .indeterminate(cards2)): return cards1 == cards2
-    case (let .identified(card1), let .identified(card2)): return card1 == card2
-    default: return false
-    }
-}
-
-extension CardState {
-    
-    init(fromNumber number: String) {
-        if let card = CardType.allValues.first(where: { $0.isValid(number) }) {
-            self = .identified(card)
+    /**
+     Validate card number
+     
+     - parameter string: card number string
+     
+     - returns: true or false
+     */
+    static func validate(string: String) -> Bool {
+        let numbers = self.onlyNumbers(string: string)
+        if numbers.count < 9 {
+            return false
         }
-        else {
-            self = .invalid
-        }
-    }
-    
-    init(fromPrefix prefix: String) {
-        let possibleTypes = CardType.allValues.filter { $0.isPrefixValid(prefix) }
-        if possibleTypes.count >= 2 {
-            self = .indeterminate(possibleTypes)
-        }
-        else if possibleTypes.count == 1, let card = possibleTypes.first {
-            self = .identified(card)
-        }
-        else {
-            self = .invalid
-        }
-    }
-    
-    func typeAndValidadeCard(number: String) -> (String) {
-        if let card = CardType.allValues.first(where: { $0.isValid(number) }) {
-            return (card.type)
-        }
-        else {
-            return "invalid"
-        }
-    }
-    
-    
-}
-
-//MARK: - PrefixContainable
-fileprivate protocol PrefixContainable {
-    
-    func hasCommonPrefix(with text: String) -> Bool
-    
-}
-
-extension ClosedRange: PrefixContainable {
-    
-    func hasCommonPrefix(with text: String) -> Bool {
-        //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
-        guard let lower = lowerBound as? String, let upper = upperBound as? String else { return false }
         
-        let trimmedRange: ClosedRange<String> = {
-            let length = text.length
-            let trimmedStart = lower.prefix(length)
-            let trimmedEnd = upper.prefix(length)
-            return trimmedStart...trimmedEnd
-        }()
+        var reversedString = ""
+        let range: Range<String.Index> = numbers.startIndex..<numbers.endIndex
         
-        let trimmedText = text.prefix(trimmedRange.lowerBound.count)
-        return trimmedRange ~= trimmedText
+        numbers.enumerateSubstrings(in: range, options: [.reverse, .byComposedCharacterSequences]) { (substring, substringRange, enclosingRange, stop) -> () in
+            reversedString += substring!
+        }
+        
+        var oddSum = 0, evenSum = 0
+        
+        for (i, s) in reversedString.enumerated() {
+            
+            let digit = Int(String(s))!
+            
+            if i % 2 == 0 {
+                evenSum += digit
+            } else {
+                oddSum += digit / 5 + (2 * digit) % 10
+            }
+        }
+        return (oddSum + evenSum) % 10 == 0
     }
+    
+    static func onlyNumbers(string: String) -> String {
+        let set = CharacterSet.decimalDigits.inverted
+        let numbers = string.components(separatedBy: set)
+        return numbers.joined(separator: "")
+    }
+    
+    // MARK: - Loading data
+    
+    private static let typesCard = [
+        [
+            "name": "Amex",
+            "regex": "^3[47][0-9]{5,}$"
+        ], [
+            "name": "Visa",
+            "regex": "^4\\d{0,}$"
+        ], [
+            "name": "MasterCard",
+            "regex": "^5[1-5]\\d{0,14}$"
+        ], [
+            "name": "Maestro",
+            "regex": "^(?:5[0678]\\d\\d|6304|6390|67\\d\\d)\\d{8,15}$"
+        ], [
+            "name": "Diners Club",
+            "regex": "^3(?:0[0-5]|[68][0-9])[0-9]{4,}$"
+        ], [
+            "name": "JCB",
+            "regex": "^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
+        ], [
+            "name": "Discover",
+            "regex": "^6(?:011|5[0-9]{2})[0-9]{3,}$"
+        ], [
+            "name": "UnionPay",
+            "regex": "^62[0-5]\\d{13,16}$"
+        ], [
+            "name": "Mir",
+            "regex": "^22[0-9]{1,14}$"
+        ]
+    ]
     
 }
 
-extension String: PrefixContainable {
-    
-    func hasCommonPrefix(with text: String) -> Bool {
-        return hasPrefix(text) || text.hasPrefix(self)
-    }
-    
+//
+//  CreditCardValidationType.swift
+//
+//  Created by Vitaliy Kuzmenko on 02/06/15.
+//  Copyright (c) 2015. All rights reserved.
+//
+import Foundation
+
+public func ==(lhs: CreditCardValidationType, rhs: CreditCardValidationType) -> Bool {
+    return lhs.name == rhs.name
 }
 
-fileprivate extension String {
+public struct CreditCardValidationType: Equatable {
     
-    func prefix(_ maxLength: Int) -> String {
-        return String(characters.prefix(maxLength))
-    }
+    public var name: String
     
-    var length: Int {
-        return count
+    public var regex: String
+    
+    public init(dict: [String: Any]) {
+        if let name = dict["name"] as? String {
+            self.name = name
+        } else {
+            self.name = ""
+        }
+        
+        if let regex = dict["regex"] as? String {
+            self.regex = regex
+        } else {
+            self.regex = ""
+        }
     }
     
 }

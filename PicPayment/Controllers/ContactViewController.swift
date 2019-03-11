@@ -21,9 +21,9 @@ class ContactsViewController: UIViewController {
         didSet {
             activityIndicator.stopAnimating()
             tableView.isScrollEnabled = true
-            
         }
     }
+    var selectedContact: Contact?
     var searchResults = [Contact]()
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -48,16 +48,6 @@ class ContactsViewController: UIViewController {
         tableView.isScrollEnabled = false
         
         getContacts()
-       
-        
-//        APIPayments.pay(cardNumber: "1111111111111111", cvv: 789, value: 79.9, expiryDate: "01/18", destinationUserId: 1002) { (result, status) in
-//            switch status {
-//            case .success(_):
-//                self.showAlert("Success", message: "\(result?.destinationUser?.name)")
-//            case .failure(let error):
-//                self.showAlert("Error", message: "\(error)")
-//            }
-//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +60,15 @@ class ContactsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cardsSegue"{
+            
+            let cardController = segue.destination as? CardsViewController
+            
+            cardController?.user = selectedContact
+        }
     }
     
     func searchForName(for searchText: String) {
@@ -142,6 +141,10 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+        selectedContact = contacts[indexPath.row]
+        
+        performSegue(withIdentifier: "cardsSegue", sender: nil)
+
     }
     
 }
@@ -171,5 +174,4 @@ extension ContactsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         searchController.isActive = false
         tableView.reloadData()
     }
-    
 }

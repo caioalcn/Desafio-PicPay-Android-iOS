@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 class APIPayments {
-    static func pay(cardNumber: String, cvv: Int, value: Double, expiryDate: String, destinationUserId: Int, completion:@escaping (Transaction?, Result<Any>) -> Void) {
-        Client.performRequest(route: RouterEndpoint.transaction(cardNumber: cardNumber, cvv: cvv, value: value, expiryDate: expiryDate, destinationUserIdString: destinationUserId)) { (result) in
+    static func pay(cardNumber: String, cvv: Int, value: Double, expireDate: String, destinationUserId: Int, completion:@escaping (Transaction?, Result<Any>) -> Void) {
+        Client.performRequest(route: RouterEndpoint.transaction(cardNumber: cardNumber, cvv: cvv, value: value, expireDate: expireDate, destinationUserIdString: destinationUserId)) { (result) in
 
             guard let json = result.value as? JSON else { completion(nil, result)
                 return

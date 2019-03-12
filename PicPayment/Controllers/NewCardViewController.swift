@@ -27,8 +27,8 @@ class NewCardViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.tintColor = UIColor(named: "GreenPic")
-        titleLabel.text = "Save Card"
-        
+        titleLabel.text = NSLocalizedString("New Card", comment: "")
+        saveButton.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
     }
     
     
@@ -40,16 +40,16 @@ class NewCardViewController: UIViewController {
         let lineColor = UIColor(named: "GrayPic")!
         
         cardNumberText.setBottomLine(borderColor: lineColor)
-        cardNumberText.setPlaceholder(text: "Card Number", textColor: UIColor(named: "GrayPic")!)
+        cardNumberText.setPlaceholder(text: NSLocalizedString("Card Number", comment: ""), textColor: UIColor(named: "GrayPic")!)
         
         nameHolderText.setBottomLine(borderColor: lineColor)
-        nameHolderText.setPlaceholder(text: "Name Holder", textColor:UIColor(named: "GrayPic")!)
+        nameHolderText.setPlaceholder(text: NSLocalizedString("Name Holder", comment: ""), textColor:UIColor(named: "GrayPic")!)
         
         expireDateText.setBottomLine(borderColor: lineColor)
-        expireDateText.setPlaceholder(text: "Expire Date", textColor: UIColor(named: "GrayPic")!)
+        expireDateText.setPlaceholder(text: NSLocalizedString("Expire Date", comment: ""), textColor: UIColor(named: "GrayPic")!)
         
         cvvText.setBottomLine(borderColor: lineColor)
-        cvvText.setPlaceholder(text: "CVV", textColor:UIColor(named: "GrayPic")!)
+        cvvText.setPlaceholder(text: NSLocalizedString("CVV", comment: ""), textColor:UIColor(named: "GrayPic")!)
         cvvText.delegate = self
     }
     
@@ -77,11 +77,11 @@ class NewCardViewController: UIViewController {
         
         if (cardNumber.isEmpty || name.isEmpty || expire.isEmpty || cvv.isEmpty) {
             
-            showAlert("Error", message: "Please fill all fields.")
+            showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please fill all fields.", comment: ""))
             return false
             
         } else if !(CreditCardValidator.validate(string: cardNumber)) {
-            showAlert("Error", message: "Please enter a valid card.")
+            showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please enter a valid card.", comment: ""))
             return false
 
         }
@@ -94,17 +94,17 @@ class NewCardViewController: UIViewController {
             let components = Calendar.current.dateComponents([.month], from: date, to: date2)
             
             if components.month! < 0 {
-                showAlert("Error", message: "Please enter a valid date.")
+                showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please enter a valid date.", comment: ""))
                 return false
             }
             
         } else {
-            showAlert("Error", message: "Please enter a valid date.")
+            showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please enter a valid date.", comment: ""))
             return false
         }
         
         if (cvv.count <= 2) {
-            showAlert("Error", message: "Please enter a valid cvv.")
+            showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please enter a valid cvv.", comment: ""))
             return false
         }
         
@@ -116,7 +116,7 @@ class NewCardViewController: UIViewController {
                 if !(ccArray.contains(where: {$0.number == card?.number})) {
                     return true
                 } else {
-                    showAlert("Error", message: "Card already register!")
+                    showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Card already register!", comment: ""))
 
                     return false
                 }

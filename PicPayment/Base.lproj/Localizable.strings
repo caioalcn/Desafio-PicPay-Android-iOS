@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  picpayment
+
+  Created by Caio Alcântara on 11/03/19.
+  Copyright © 2019 Red Ice. All rights reserved.
+*/
+
+"Contacts" = "Contacts";
+
+"Who you want to pay?" = "Who you want to pay?";
+
+"Cards" = "Cards";
+
+"Save a Credit Card" = "Save a Credit Card";
+
+"To be able to pay other people you will need to have a personal creditcard" = "To be able to pay other people you will need to have a personal creditcard";
+
+"No Data Found!" = "No Data Found!";
+
+"Delete" = "Delete";
+
+"Error Loading Data!" = "Error Loading Data!";
+
+"Error" = "Error";
+
+"Error internet connection" = "Error internet connection";
+
+"Please check your internet connection." = "Please check your internet connection.";
+
+"Are you sure you want to delete this card?" = "Are you sure you want to delete this card?";
+
+"Yes" = "Yes";
+
+"No" = "No";
+
+"Card ends with " = "Card ends with ";
+
+"New Card" = "New Card";
+
+"Card Number" = "Card Number";
+
+"Name Holder" = "Name Holder";
+
+"Expire Date" = "Expire Date";
+
+"CVV" = "CVV";
+
+"Please fill all fields." = "Please fill all fields.";
+
+"Please enter a valid card." = "Please enter a valid card.";
+
+"Please enter a valid date." = "Please enter a valid date.";
+
+"Please enter a valid cvv." = "Please enter a valid cvv.";
+
+"Card already register!" = "Card already register!";
+
+"Transaction " = "Transaction ";
+
+"Register a New Card" = "Register a New Card";
+
+"Save" = "Save";
+
+"Pay" = "Pay";
+
+"EDIT" = "EDIT";
+
+"Total Paid" = "Total Paid";
+
+"Receipt" = "Receipt";

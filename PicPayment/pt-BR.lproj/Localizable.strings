@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  picpayment
+
+  Created by Caio Alcântara on 11/03/19.
+  Copyright © 2019 Red Ice. All rights reserved.
+*/
+
+"Contacts" = "Contatos";
+
+"Who you want to pay?" = "A quem você deseja pagar?";
+
+"Cards" = "Cartões";
+
+"Save a Credit Card" = "Cadastre um cartão de crédito";
+
+"To be able to pay other people you will need to have a personal creditcard" = "Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.";
+
+"No Data Found!" = "Não foram entrando nenhum dados";
+
+"Delete" = "Excluir";
+
+"Error" = "Erro";
+
+"Please check your internet connection." = "Por favor verifique sua conexão.";
+
+"Error internet connection" = "Erro de conexão";
+
+"Error Loading Data!" = "Houve um erro ao carregar os dados!";
+
+"Are you sure you want to delete this card?" = "Você tem certeza que deseja excluir este cartão ?";
+
+"Yes" = "Sim";
+
+"No" = "Não";
+
+"Card ends with " = "Cartão terminado ";
+
+"New Card" = "Cadastrar Cartão";
+
+"Card Number" = "Número do Cartão";
+
+"Name Holder" = "Nome do Titular";
+
+"Expire Date" = "Vencimento";
+
+"CVV" = "CVV";
+
+"Please fill all fields." = "Por favor preencha todos os campos.";
+
+"Please enter a valid card." = "Por favor digite um cartão válido.";
+
+"Please enter a valid date." = "Por favor digite uma data válida.";
+
+"Please enter a valid cvv." = "Por favor digite o cvv válido.";
+
+"Card already register!" = "Este cartão já está cadastrado.";
+
+"Transaction " = "Transação ";
+
+"Register a New Card" = "Cadastrar Cartão";
+
+"Save" = "Salvar";
+
+"Pay" = "Pagar";
+
+"EDIT" = "EDITAR";
+
+"Total Paid" = "Total Pago";
+
+"Receipt" = "Recibo";

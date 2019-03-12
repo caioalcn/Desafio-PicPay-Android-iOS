@@ -13,6 +13,8 @@ class CardsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var noCardDataView: UIView!
+    @IBOutlet weak var noCardDataLabel: UILabel!
+    @IBOutlet weak var noCardDescriptionLabel: UILabel!
     @IBOutlet weak var saveCardButton: UIButton!
     
     let keychain = Keychain(service: "ccSecurity")
@@ -21,8 +23,10 @@ class CardsViewController: UIViewController {
         didSet {
             if creditCards.count <= 0 {
                 setupNoDataView(isHidden: false)
+                tableView.isScrollEnabled = false
             } else {
                 setupNoDataView(isHidden: true)
+                tableView.isScrollEnabled = true
             }
         }
     }
@@ -31,8 +35,12 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Cards"
+        navigationItem.title = NSLocalizedString("Cards", comment: "")
+        saveCardButton.setTitle(NSLocalizedString("Register a New Card", comment: ""), for: .normal)
+        noCardDataLabel.text = NSLocalizedString("Save a Credit Card", comment: "")
+        noCardDescriptionLabel.text = NSLocalizedString("To be able to pay other people you will need to have a personal creditcard", comment: "")
         tableView.backgroundView = noCardDataView
+        tableView.isScrollEnabled = false
 
     }
 
@@ -64,11 +72,9 @@ class CardsViewController: UIViewController {
     
     func setupNoDataView(isHidden: Bool) {
         noCardDataView.isHidden = isHidden
+       
     }
-    
-    @IBAction func saveCard(_ sender: UIButton) {
-    }
-    
+
 }
 
 extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -99,9 +105,9 @@ extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let alertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete this card?", preferredStyle: .alert)
+            let alertController = UIAlertController(title: NSLocalizedString("Delete", comment: ""), message: NSLocalizedString("Are you sure you want to delete this card?", comment: ""), preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "Yes", style: .default) {
+            let okAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) {
                 UIAlertAction in
                 
                 self.creditCards.remove(at: indexPath.row)
@@ -110,7 +116,7 @@ extension CardsViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
-            let cancelAction = UIAlertAction(title: "No", style: .cancel) {
+            let cancelAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel) {
                 UIAlertAction in
             }
             

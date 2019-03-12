@@ -23,6 +23,7 @@ class AmountViewController: UIViewController {
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var signLabel: UILabel!
     @IBOutlet weak var payButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     var userPay: Contact?
     var ccSelected: CreditCard?
@@ -41,7 +42,6 @@ class AmountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         setupInfo()
         amountText.delegate = self
         amountText.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -115,7 +115,8 @@ class AmountViewController: UIViewController {
         }
         
         userNameLabel.text = user.username
-        
+        payButton.setTitle(NSLocalizedString("Pay", comment: ""), for: .normal)
+        editButton.setTitle(NSLocalizedString("EDIT", comment: ""), for: .normal)
         
         if card.type == "Amex" {
             if let threeDigits = card.number?.suffix(3), let type = card.type{
@@ -185,12 +186,12 @@ class AmountViewController: UIViewController {
                     }
                     self.delegate?.setupUI(receipt: rec, card: self.ccSelected!)
                 case .failure(_):
-                    self.showAlert("Error", message: "Please check your internet connection.")
+                    self.showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check your internet connection.", comment: ""))
                 }
                 HUDHelper.hideLoading()
             }
         } else {
-            self.showAlert("Error", message: "Please check your internet connection.")
+            self.showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check your internet connection.", comment: ""))
         }
     }
 }
@@ -201,7 +202,7 @@ extension AmountViewController: UITextFieldDelegate {
         guard let text = textField.text else { return true }
         let count = text.count + string.count - range.length
         
-        return count <= 7
+        return count <= 8
     }
 }
 

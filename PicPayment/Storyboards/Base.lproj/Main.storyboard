@@ -254,7 +254,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="saveCard:" destination="2Xn-Rk-54e" eventType="touchUpInside" id="fkX-9n-N2H"/>
                                     <segue destination="5Ux-ym-U4M" kind="show" identifier="newCardSegue" id="ict-kL-Nfr"/>
                                 </connections>
                             </button>
@@ -275,7 +274,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="GBr-9h-iML"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="noCardDataView" destination="Hde-1L-SxT" id="DVT-C9-Spd"/>
+                        <outlet property="noCardDataLabel" destination="ACU-ZT-7vE" id="MpF-mW-E6Z"/>
+                        <outlet property="noCardDataView" destination="Hde-1L-SxT" id="fJO-ce-p6E"/>
+                        <outlet property="noCardDescriptionLabel" destination="xi0-pG-iWT" id="pZ9-G1-r2m"/>
                         <outlet property="saveCardButton" destination="Tfk-6e-6Ao" id="4mJ-jy-Bny"/>
                         <outlet property="tableView" destination="y8K-Db-W9j" id="F30-eW-LeD"/>
                         <segue destination="lPm-be-aBw" kind="show" identifier="amountCardSegue" id="tYf-TD-bhL"/>
@@ -296,7 +297,7 @@
                                         <constraint firstAttribute="width" constant="120" id="fO6-sI-fYZ"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save a Credit Card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACU-ZT-7vE">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACU-ZT-7vE">
                                     <rect key="frame" x="0.0" y="80" width="230" height="70"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="230" id="Ccb-O2-kAf"/>
@@ -306,7 +307,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To be able to pay other people you will need to have a personal creditcard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xi0-pG-iWT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xi0-pG-iWT">
                                     <rect key="frame" x="0.0" y="160" width="230" height="63"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="230" id="CGf-uq-kRP"/>
@@ -498,7 +499,8 @@
                         <outlet property="amountText" destination="gd5-YK-gsm" id="rcm-Ve-QLY"/>
                         <outlet property="cardLabel" destination="tUF-st-YR8" id="rHo-Sn-PG7"/>
                         <outlet property="childBottomConstraint" destination="Zt0-ZF-uxk" id="LOC-AX-114"/>
-                        <outlet property="payButton" destination="LbT-as-ULo" id="U7f-26-IZG"/>
+                        <outlet property="editButton" destination="uAB-9i-aqg" id="aYR-Je-iZ6"/>
+                        <outlet property="payButton" destination="LbT-as-ULo" id="TNV-AO-0CT"/>
                         <outlet property="signLabel" destination="NxN-rv-cn0" id="SNb-g9-4iU"/>
                         <outlet property="userImage" destination="EwC-xU-vDU" id="2zU-yS-pnc"/>
                         <outlet property="userNameLabel" destination="Xer-oE-7Sc" id="Dt1-VD-9Jt"/>
@@ -511,7 +513,7 @@
         <!--New Card View Controller-->
         <scene sceneID="bJT-Or-4bg">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="5Ux-ym-U4M" customClass="NewCardViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="5Ux-ym-U4M" customClass="NewCardViewController" customModule="picpayment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAj-cW-cpS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -857,6 +859,8 @@
                     <connections>
                         <outlet property="cardLabel" destination="K48-Kq-9rW" id="AWF-Pv-gR4"/>
                         <outlet property="dateLabel" destination="A4H-X0-Whu" id="ffP-S9-h0R"/>
+                        <outlet property="receiptLabel" destination="tw3-cb-5eW" id="dhA-ms-fJh"/>
+                        <outlet property="totalPaidLabel" destination="RXb-q5-Eg8" id="633-ov-csR"/>
                         <outlet property="transactionLabel" destination="hly-5i-rfK" id="QXM-Cv-DaP"/>
                         <outlet property="userImage" destination="S1h-Ej-c8B" id="Itz-2I-Rcf"/>
                         <outlet property="userNameLabel" destination="qz0-2P-Aoj" id="nad-y6-gXk"/>
@@ -870,12 +874,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="13" height="25"/>
-        <image name="creditcard" width="599" height="419"/>
-        <image name="form" width="142" height="18"/>
-        <image name="line" width="250" height="1"/>
-        <image name="profile-user" width="480" height="480"/>
-        <image name="refresh" width="512" height="512"/>
+        <image name="back" width="25" height="48"/>
+        <image name="creditcard" width="299.5" height="209.5"/>
+        <image name="form" width="71" height="9"/>
+        <image name="line" width="98.36065673828125" height="0.39344263076782227"/>
+        <image name="profile-user" width="384" height="384"/>
+        <image name="refresh" width="384" height="384"/>
         <namedColor name="BlackPic">
             <color red="0.082352941176470587" green="0.082352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -890,6 +894,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kgp-jA-Tqi"/>
+        <segue reference="tYf-TD-bhL"/>
     </inferredMetricsTieBreakers>
 </document>

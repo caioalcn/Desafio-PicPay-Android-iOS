@@ -1,0 +1,117 @@
+
+/* Class = "UITextField"; placeholder = "Expire"; ObjectID = "76L-tn-FJa"; */
+"76L-tn-FJa.placeholder" = "Expire";
+
+/* Class = "UILabel"; text = "15/12/2022 às 16:34"; ObjectID = "A4H-X0-Whu"; */
+"A4H-X0-Whu.text" = "15/12/2022 às 16:34";
+
+/* Class = "UILabel"; text = "Save a Credit Card"; ObjectID = "ACU-ZT-7vE"; */
+"ACU-ZT-7vE.text" = "Save a Credit Card";
+
+/* Class = "UITextField"; placeholder = "Name Title"; ObjectID = "BNc-jj-4CM"; */
+"BNc-jj-4CM.placeholder" = "Name Title";
+
+/* Class = "UIViewController"; title = "Cards"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Cards";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "CMj-X3-4Gq"; */
+"CMj-X3-4Gq.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "E9h-qV-F5d"; */
+"E9h-qV-F5d.text" = "name";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "EM2-d3-6KB"; */
+"EM2-d3-6KB.title" = " ";
+
+/* Class = "UITextField"; placeholder = "CVV"; ObjectID = "EUh-TH-T8y"; */
+"EUh-TH-T8y.placeholder" = "CVV";
+
+/* Class = "UILabel"; text = "•"; ObjectID = "EgK-K0-G3f"; */
+"EgK-K0-G3f.text" = "•";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "GBr-9h-iML"; */
+"GBr-9h-iML.title" = " ";
+
+/* Class = "UILabel"; text = "Cartão com final 1234"; ObjectID = "ISV-hG-YSt"; */
+"ISV-hG-YSt.text" = "Cartão com final 1234";
+
+/* Class = "UILabel"; text = "Amex 123"; ObjectID = "K48-Kq-9rW"; */
+"K48-Kq-9rW.text" = "Amex 123";
+
+/* Class = "UIButton"; normalTitle = "Pay"; ObjectID = "LbT-as-ULo"; */
+"LbT-as-ULo.normalTitle" = "Pay";
+
+/* Class = "UILabel"; text = "@user"; ObjectID = "Lrl-9w-Auq"; */
+"Lrl-9w-Auq.text" = "@user";
+
+/* Class = "UINavigationController"; title = "Contacts"; ObjectID = "M1N-Ev-2mf"; */
+"M1N-Ev-2mf.title" = "Contacts";
+
+/* Class = "UILabel"; text = "R$"; ObjectID = "NxN-rv-cn0"; */
+"NxN-rv-cn0.text" = "R$";
+
+/* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "PG2-Ve-Fpi"; */
+"PG2-Ve-Fpi.title" = "Contacts";
+
+/* Class = "UILabel"; text = "Total Pago"; ObjectID = "RXb-q5-Eg8"; */
+"RXb-q5-Eg8.text" = "Total Pago";
+
+/* Class = "UITextField"; placeholder = "Card Number"; ObjectID = "SAy-pD-Gea"; */
+"SAy-pD-Gea.placeholder" = "Card Number";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Sf5-Cj-N0J"; */
+"Sf5-Cj-N0J.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Register Card"; ObjectID = "Tfk-6e-6Ao"; */
+"Tfk-6e-6Ao.normalTitle" = "Register Card";
+
+/* Class = "UILabel"; text = "Save Card"; ObjectID = "Ue6-9f-IQw"; */
+"Ue6-9f-IQw.text" = "Save Card";
+
+/* Class = "UILabel"; text = "R$ 1.600,00"; ObjectID = "Wjo-eJ-w1L"; */
+"Wjo-eJ-w1L.text" = "R$ 1.600,00";
+
+/* Class = "UILabel"; text = "@zelda.williams"; ObjectID = "Xer-oE-7Sc"; */
+"Xer-oE-7Sc.text" = "@zelda.williams";
+
+/* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "Y97-F4-of7"; */
+"Y97-F4-of7.title" = "Contacts";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YQX-2b-Ci7"; */
+"YQX-2b-Ci7.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "anh-PG-c7v"; */
+"anh-PG-c7v.title" = " ";
+
+/* Class = "UITextField"; text = "0,00"; ObjectID = "gd5-YK-gsm"; */
+"gd5-YK-gsm.text" = "0,00";
+
+/* Class = "UILabel"; text = "R$ 16,90"; ObjectID = "hMv-df-5Bc"; */
+"hMv-df-5Bc.text" = "R$ 16,90";
+
+/* Class = "UILabel"; text = "Transação: 230010"; ObjectID = "hly-5i-rfK"; */
+"hly-5i-rfK.text" = "Transação: 230010";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "iZj-fj-RXK"; */
+"iZj-fj-RXK.title" = " ";
+
+/* Class = "UILabel"; text = "Master"; ObjectID = "lJ2-DR-xim"; */
+"lJ2-DR-xim.text" = "Master";
+
+/* Class = "UINavigationItem"; title = "Cards"; ObjectID = "laS-bS-iyq"; */
+"laS-bS-iyq.title" = "Cards";
+
+/* Class = "UILabel"; text = "@zelda.williams"; ObjectID = "qz0-2P-Aoj"; */
+"qz0-2P-Aoj.text" = "@zelda.williams";
+
+/* Class = "UILabel"; text = "Visa 1234"; ObjectID = "tUF-st-YR8"; */
+"tUF-st-YR8.text" = "Visa 1234";
+
+/* Class = "UILabel"; text = "Receipt"; ObjectID = "tw3-cb-5eW"; */
+"tw3-cb-5eW.text" = "Receipt";
+
+/* Class = "UIButton"; normalTitle = "EDIT"; ObjectID = "uAB-9i-aqg"; */
+"uAB-9i-aqg.normalTitle" = "EDIT";
+
+/* Class = "UILabel"; text = "To be able to pay other people you will need to have a personal creditcard"; ObjectID = "xi0-pG-iWT"; */
+"xi0-pG-iWT.text" = "To be able to pay other people you will need to have a personal creditcard";

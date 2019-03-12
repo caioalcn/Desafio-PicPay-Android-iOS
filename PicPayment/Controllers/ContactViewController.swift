@@ -34,11 +34,11 @@ class ContactsViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(named: "GreenPic")
         navigationController?.view.backgroundColor = UIColor(named: "DarkPic")
         navigationItem.searchController = searchController
-        navigationItem.title = "Contacts"
+        navigationItem.title = NSLocalizedString("Contacts", comment: "")
             
         searchController.searchBar.barStyle = .black
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Who you want to pay?"
+        searchController.searchBar.placeholder = NSLocalizedString("Who you want to pay?", comment: "")
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = .white
         searchController.hidesNavigationBarDuringPresentation = false
@@ -99,7 +99,7 @@ class ContactsViewController: UIViewController {
                 switch status {
                 case .success(_):
                     
-                    guard let c = result else { self.setupNoDataView(text: "No Data Found!", isHidden: false)
+                    guard let c = result else { self.setupNoDataView(text: NSLocalizedString("No Data Found!", comment: ""), isHidden: false)
                         return }
                     
                     self.contacts = c
@@ -108,13 +108,13 @@ class ContactsViewController: UIViewController {
                     
                 case .failure(_):
                     self.activityIndicator.stopAnimating()
-                    self.setupNoDataView(text: "Error Loading Data!", isHidden: false)
-                    self.showAlert("Error", message: "Please check your internet connection.")
+                    self.setupNoDataView(text: NSLocalizedString("Error Loading Data!", comment: ""), isHidden: false)
+                    self.showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check your internet connection.", comment: ""))
                 }
             }
         } else {
-            self.showAlert("Error", message: "Please check your internet connection.")
-            self.setupNoDataView(text: "Error internet connection", isHidden: false)
+            self.showAlert(NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please check your internet connection.", comment: ""))
+            self.setupNoDataView(text: NSLocalizedString("Error internet connection", comment: "") , isHidden: false)
         }
     }
     
@@ -141,7 +141,8 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        selectedContact = contacts[indexPath.row]
+        selectedContact = searchController.isActive ?
+            searchResults[indexPath.row] : contacts[indexPath.row]
         
         performSegue(withIdentifier: "cardsSegue", sender: nil)
 

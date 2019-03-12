@@ -22,12 +22,13 @@ class CardCell: UITableViewCell {
         
         if card.type == "Amex" {
             if let threeDigits = card.number?.suffix(3){
-                cardNumberLabel.text = "Card ends with " + threeDigits
+                
+                cardNumberLabel.text = NSLocalizedString("Card ends with ", comment: "") + threeDigits
             }
         } else {
         
             if let fourDigits = card.number?.suffix(4){
-                cardNumberLabel.text = "Card ends with " + fourDigits
+                cardNumberLabel.text = NSLocalizedString("Card ends with ", comment: "") + fourDigits
             }
         }
         

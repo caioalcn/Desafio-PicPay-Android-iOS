@@ -10,13 +10,14 @@ import UIKit
 
 class ReceiptViewController: UIViewController {
 
+    @IBOutlet weak var receiptLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var transactionLabel: UILabel!
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
-    
+    @IBOutlet weak var totalPaidLabel: UILabel!
     @IBOutlet weak var valuePaidLabel: UILabel!
     
     override func viewDidLoad() {
@@ -44,11 +45,16 @@ extension ReceiptViewController: AmountViewControllerDelegate {
             let date = formatter.string(from: time)
             
             dateLabel.text = date
-            transactionLabel.text = "Transaction " + String(id)
+            transactionLabel.text = NSLocalizedString("Transaction ", comment: "") + String(id)
+            
+            totalPaidLabel.text = NSLocalizedString("Total Paid", comment: "")
+            
+            receiptLabel.text = NSLocalizedString("Receipt", comment: "")
             
             let currency = NumberFormatter()
             currency.numberStyle = .currency
-            
+            currency.locale = Locale(identifier: "pt_BR")
+
             if let formattedTipAmount = currency.string(from: NSNumber(value: value)) {
                 valuePaidLabel.text = formattedTipAmount
                 valueLabel.text = formattedTipAmount
@@ -64,6 +70,5 @@ extension ReceiptViewController: AmountViewControllerDelegate {
                 cardLabel.text = type + " " + fourDigits
             }
         }
-        
     }
 }

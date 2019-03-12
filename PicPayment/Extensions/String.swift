@@ -15,6 +15,7 @@ extension  String {
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
+        formatter.locale = Locale(identifier: "pt_BR")
         formatter.currencySymbol = ""
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
@@ -38,14 +39,16 @@ extension  String {
     
     func currencyToDouble() -> Double {
         
-        if self.contains(".") {
-            let thousand = self.replacingOccurrences(of: ".", with: "")
+        let noSpaces = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if noSpaces.contains(".") {
+            let thousand = noSpaces.replacingOccurrences(of: ".", with: "")
             let changedSeparator = thousand.replacingOccurrences(of: ",", with: ".")
             guard let doubleValue = Double(changedSeparator) else { return 0.0 }
             
             return doubleValue
         } else {
-            let changedSeparator = self.replacingOccurrences(of: ",", with: ".")
+            let changedSeparator = noSpaces.replacingOccurrences(of: ",", with: ".")
             guard let doubleValue = Double(changedSeparator) else { return 0.0 }
             
             return doubleValue
